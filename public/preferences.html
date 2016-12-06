@@ -28,7 +28,10 @@
   <link href="../vendors/starrr/dist/starrr.css" rel="stylesheet">
   <!-- bootstrap-daterangepicker -->
   <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-
+  <!-- Ion.RangeSlider -->
+    <link href="../vendors/normalize-css/normalize.css" rel="stylesheet">
+    <link href="../vendors/ion.rangeSlider/css/ion.rangeSlider.css" rel="stylesheet">
+    <link href="../vendors/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
   <!-- Custom Theme Style -->
   <link href="../build/css/custom.min.css" rel="stylesheet">
 </head>
@@ -313,7 +316,7 @@
                   <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="days">Working Days for Enigma<span class="required">*</span>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="days">Working Days for Enigma
                         </label>
                       <div class="checkbox col-md-6 col-sm-6 col-xs-12">
                             <label>
@@ -427,14 +430,28 @@
                            </div>
                         </div>
                       </div>
+
+                      <!-- Light Intensity Slider -->
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">
                           Light Intensity
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" class="range_min_max" value="" name="range" />
+                          <input type="text" id="range1" value="" name="light_slider" />
+                        </div>
                       </div>
+
+                      <!-- FAN Slider -->
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                          Fan Speed
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="range2" value="" name="fan_slider" />
+                        </div>
                       </div>
+
+                     
                     <div class="ln_solid"></div>
                     <div class="form-group">
                       <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
@@ -735,6 +752,26 @@
     </script>
   <!-- /jQuery autocomplete -->
 
+   <!-- Ion.RangeSlider -->
+    <script src="../vendors/ion.rangeSlider/js/ion.rangeSlider.min.js"></script>
+  <!-- Ion.RangeSlider -->
+    <script>
+        $("#range1").ionRangeSlider({
+          type: "single",
+          min: 0,
+          max: 100,
+          step: 1,
+          grid: true
+        });
+        $("#range2").ionRangeSlider({
+          type: "single",
+          min: 0,
+          max: 100,
+          step: 1,
+          grid: true
+        });
+    </script>
+    <!-- /Ion.RangeSlider -->
   <!-- Starrr -->
   <script>
       $(document).ready(function() {
@@ -754,71 +791,6 @@
       });
     </script>
   <!-- /Starrr -->
-
-  <script>
-      $(document).ready(function() {
-        $("#range_27").ionRangeSlider({
-          type: "double",
-          min: 1000000,
-          max: 2000000,
-          grid: true,
-          force_edges: true
-        });
-        $("#range").ionRangeSlider({
-          hide_min_max: true,
-          keyboard: true,
-          min: 0,
-          max: 5000,
-          from: 1000,
-          to: 4000,
-          type: 'double',
-          step: 1,
-          prefix: "$",
-          grid: true
-        });
-        $("#range_25").ionRangeSlider({
-          type: "double",
-          min: 1000000,
-          max: 2000000,
-          grid: true
-        });
-        $("#range_26").ionRangeSlider({
-          type: "double",
-          min: 0,
-          max: 10000,
-          step: 500,
-          grid: true,
-          grid_snap: true
-        });
-        $("#range_31").ionRangeSlider({
-          type: "double",
-          min: 0,
-          max: 100,
-          from: 30,
-          to: 70,
-          from_fixed: true
-        });
-        $(".range_min_max").ionRangeSlider({
-          type: "double",
-          min: 0,
-          max: 100,
-          from: 30,
-          to: 70,
-          max_interval: 50
-        });
-        $(".range_time24").ionRangeSlider({
-          min: +moment().subtract(12, "hours").format("X"),
-          max: +moment().format("X"),
-          from: +moment().subtract(6, "hours").format("X"),
-          grid: true,
-          force_edges: true,
-          prettify: function(num) {
-            var m = moment(num, "X");
-            return m.format("Do MMMM, HH:mm");
-          }
-        });
-      });
-    </script>
 </body>
 
 </html>
