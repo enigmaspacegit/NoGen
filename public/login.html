@@ -39,9 +39,10 @@
                     <form>
                         <p><h1 class="brandMessage">Light's Out!</h1></p>
                         <p> <h4 class="taglineMessage"> A Virtual Sleeping Environment.</h4></p>
-                        <input class="inputcustom" type="text" placeholder="username" />
-                        <input class="inputcustom" type="password" placeholder="password" />
-                        <button class="buttoncustom" href="">Login</button>
+                        <input class="inputcustom" type="text" placeholder="username" ng-model="username" />
+                        <input class="inputcustom" type="password" placeholder="password"  ng-model="password"/>
+                        <span style="color : red"ng-show="error_invalid_login">{{error_invalid_login}}</span>
+                        <button class="buttoncustom" href="" ng-click="call()">Login</button>
                         <p class="message">Not registered? 
                             <a href="#signup">Create an account</a></p>
                         </form>
@@ -55,7 +56,7 @@
                             <p><h1 class="brandMessage">Light's Out!</h1></p>
                             <p> <h4 class="taglineMessage"> A Virtual Sleeping Environment.</h4></p>
                             <input type="text" class="inputcustom" placeholder="Username" required="" ng-model="username"/>
-                            <span ng-disabled="!error_invalid_username"> lalala</span>
+                            <span style="color : red"ng-show="error_invalid_username">{{error_invalid_username}}</span>
                             <input type="email" class="inputcustom" placeholder="Email" required="" ng-model="email"/>
                             <input type="password" class="inputcustom" placeholder="Password" required="" ng-model="password"/>
                             <input class="inputcustom" type="number" placeholder="Your Age in Years" ="" ng-model="age">
