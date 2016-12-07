@@ -7,13 +7,7 @@ app.controller("loginController", function($scope, $http, $window) {
     $scope.call = function() {
 
     	var couldantString = "https://6e3a252f-2d39-4b3e-a820-b8d3e9c08a9e-bluemix:08c0c7801afd410eea51d5913a2a81bdaeecc480de508954f54c3388873c64a6@6e3a252f-2d39-4b3e-a820-b8d3e9c08a9e-bluemix.cloudant.com/";
-        var url = couldantString + "registration/_design/registration/_search/existSearch?q=uname:\""+$scope.username+"\" AND password:\""+$scope.password+"\""
-        // var data = {
-        //     "_id": $scope.username,
-        //     "d": {
-        //         "password": $scope.password,
-        //     }
-        // }
+        var url = couldantString + "registration/_design/registration/_search/existSearch?q=uname:\""+$scope.username+"\" AND password:\""+$scope.password+"\"";
 
         var config = {
             headers: {
