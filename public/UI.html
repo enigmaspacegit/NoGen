@@ -266,7 +266,7 @@
   <!-- Modals -->
 
 
-  <!-- Modal#1 -->
+  <!-- Modal#1 Light Controller -->
   <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
     <div class="vertical-alignment-helper">
         <div class="modal-dialog vertical-align-center">
@@ -292,7 +292,7 @@
                               Light Intensity
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
-                              <input type="text" id="range1" value="" name="light_slider" />
+                              <input type="text" id="range1" ng-model="pref_light_slider" name="light_slider" />
                             </div>
                       </div>
                       </div>
@@ -308,7 +308,7 @@
 </div>
 
 
-  <!-- Modal#2 -->
+  <!-- Modal#2 Fan Controller-->
   <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
     <div class="vertical-alignment-helper">
         <div class="modal-dialog vertical-align-center">
@@ -349,7 +349,7 @@
     </div>
 </div>
 
-  <!-- Modal#3 -->
+  <!-- Modal#3 Blinds Controller-->
   <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
     <div class="vertical-alignment-helper">
         <div class="modal-dialog vertical-align-center">
@@ -398,7 +398,7 @@
 </div>
 
 
-  <!-- Modal#4 -->
+  <!-- Modal#4 Room Environment -->
   <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
     <div class="vertical-alignment-helper">
         <div class="modal-dialog vertical-align-center">
@@ -408,7 +408,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                             &times;
                         </button>
-                        <p class="lead" style="text-align: center;">Lights Controller</p>
+                        <p class="lead" style="text-align: center;">Room Environment Setter</p>
                         <div class="form-group">
                             <label class="control-label col-md-6 col-sm-6 col-xs-6" style="text-align: right;">Use Automatic Settings</label>
                             <div class="col-md-6 col-sm-6 col-xs-6" style="padding-top: 8px;">
@@ -420,12 +420,7 @@
                             </div>
                         </div>
                         <div class="form-group slider">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" style="padding-top: 22px">
-                              Light Intensity
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="text" id="range1" value="" name="light_slider" />
-                            </div>
+                            <!-- Add the Modal 4 Data here -->
                       </div>
                       </div>
                     <div class="modal-footer">

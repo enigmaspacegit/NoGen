@@ -85,6 +85,7 @@ app.controller("appController", function($scope, $http, $filter) {
         	$scope.pref_wakeup_time = response.rows[0].fields.wakeup_time;
         	$scope.pref_start_time = response.rows[0].fields.start_time;
         });
+        console.log($scope.pref_light_slider);
     }
 
     $scope.init = function() {
