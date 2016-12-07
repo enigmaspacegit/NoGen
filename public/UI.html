@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Lights Out - A Virtual Sleeping Environment !</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.css" />
     <link href="css/custom.min.css" rel="stylesheet">
@@ -21,6 +22,11 @@
     <link href="../vendors/switchery/dist/switchery.min.css" rel="stylesheet">
         <!-- Custom Theme Style -->
         <link href = "../build/css/custom.css" rel = "stylesheet">
+    <style type="text/css">
+        *{
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
 </head>
 
 <body class="nav-md" ng-controller="appController">
@@ -90,7 +96,7 @@
             </div>
             <!-- top navigation -->
             <!-- /top navigation -->
-            <div class="right_col" role="main" style="margin-top: -10px;">
+            <div class="right_col" role="main" style="margin-top: -10px; background-color: #E0E0E0">
                 <div class="" style="margin : 0 -20px;">
                     <div class="SunsetData navcustomcontainerfluid custom_border_radius">
                         <div class="sunsetText1 text-center" style="padding: 3px">
@@ -98,29 +104,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- top tiles -->
-                <!--<div class="row tile_count">
-            <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i>Last Night Sleep</span>
-              <div class="count">8</div>
-              <span class="count_bottom"><i class="green">Hours</i></span>
-            </div>
-            <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-clock-o"></i> Average Temperature</span>
-              <div class="count">28</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i></i></span>
-            </div>
-            <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i>Average Humidity</span>
-              <div class="count green">37%</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i></i></span>
-            </div>
-            <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i>Total Sleep this week</span>
-              <div class="count">50</div>
-              <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i></i> </span>
-            </div>
-        </div>-->
         <div class="container">
             <div class="row" style="margin-top:10px; margin-bottom:10px;">
                 <div class="col-md-3 col-sm-6 col-xs-12" style="padding-right: 20px;">
@@ -190,8 +173,52 @@
             </div>
         </div>
         <!-- /top tiles -->
+
         <div class="row ">
+            <div class="col-md-6 col-lg-6 col-xs-12" style="padding-right: 20px;">
+                <div class="row custom_margin_top custom_box_shadow custom_border_radius" style="background-color: #FFF">
+                    <div class="card" style="padding : 5px ">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="min-height:100px;">
+                            <div class="cartPic">
+                                <img src="images/bulb.png">
+                            </div>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" style="min-height:100px;">
+                            <div class="cartText">
+                                <h2>Room Environment</h2>
+                                <p>Control the settings of Lights</p>
+                            </div>
+                        </div>
+                        <div class="card-footer pull-right">
+                            <button class=" btn btn-primary custom_button_css" data-toggle="modal" data-backdrop="static" data-keyboard="false" data-target="#myModal4">More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="col-md-6 col-lg-6 col-xs-12">
+                <div class="row custom_margin_top custom_margin_right custom_box_shadow custom_border_radius" style="background-color: #FFF">
+                    <div class="card" style="padding : 5px ">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="min-height:100px;">
+                            <div class="cartPic">
+                                <img src="images/bulb.png">
+                            </div>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" style="min-height:100px;">
+                            <div class="cartText">
+                                <h2>Window Blinds</h2>
+                                <p>Control the blinds!</p>
+                            </div>
+                        </div>
+                        <div class="card-footer pull-right">
+                            <button class=" btn btn-primary custom_button_css" data-toggle="modal" data-backdrop="static" data-keyboard="false" data-target="#myModal3">More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row ">
+            <div class="col-md-6 col-lg-6 col-xs-12" style="padding-right: 20px; ">
                 <div class="row custom_margin_top custom_margin_right custom_box_shadow custom_border_radius" style="background-color: #FFF">
                     <div class="card" style="padding : 5px ">
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="min-height:100px;">
@@ -206,7 +233,7 @@
                             </div>
                         </div>
                         <div class="card-footer pull-right">
-                            <button class=" btn btn-primary custom_button_css" data-toggle="modal" data-backdrop="static" data-keyboard="false" data-target="#myModal">More</button>
+                            <button class=" btn btn-primary custom_button_css" data-toggle="modal" data-backdrop="static" data-keyboard="false" data-target="#myModal1">More</button>
                         </div>
                     </div>
                 </div>
@@ -226,60 +253,21 @@
                             </div>
                         </div>
                         <div class="card-footer pull-right">
-                            <button class="btn btn-primary custom_button_css ">Click</button>
+                            <button class="btn btn-primary custom_button_css" data-toggle="modal" data-backdrop="static" data-keyboard="false" data-target="#myModal2">Click</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row ">
-            <div class="col-md-6 col-lg-6 col-xs-12">
-                <div class="row custom_margin_top custom_margin_right custom_box_shadow custom_border_radius" style="background-color: #FFF">
-                    <div class="card" style="padding : 5px ">
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="min-height:100px;">
-                            <div class="cartPic">
-                                <img src="images/bulb.png">
-                            </div>
-                        </div>
-                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" style="min-height:100px;">
-                            <div class="cartText">
-                                <h2>Window Blinds</h2>
-                                <p>Control the blinds!</p>
-                            </div>
-                        </div>
-                        <div class="card-footer pull-right">
-                            <button class="btn btn-primary custom_button_css">Click</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-6 col-xs-12">
-                <div class="row custom_margin_top custom_box_shadow custom_border_radius" style="background-color: #FFF">
-                    <div class="card" style="padding : 5px ">
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="min-height:100px;">
-                            <div class="cartPic">
-                                <img src="images/bulb.png">
-                            </div>
-                        </div>
-                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" style="min-height:100px;">
-                            <div class="cartText">
-                                <h2>Room's </h2>
-                                <p>Control the settings of Lights</p>
-                            </div>
-                        </div>
-                        <div class="card-footer pull-right">
-                            <button class="btn btn-primary custom_button_css">Click</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
       </div>
   </div>
 
+  <!-- Modals -->
 
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+
+  <!-- Modal#1 -->
+  <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
     <div class="vertical-alignment-helper">
         <div class="modal-dialog vertical-align-center">
             <div class="modal-content" style="background-color: #ededed;">
@@ -290,8 +278,140 @@
                         </button>
                         <p class="lead" style="text-align: center;">Lights Controller</p>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Use Automatic Settings</label>
-                            <div class="col-md-9 col-sm-9 col-xs-12" style="padding-top: 16px;">
+                            <label class="control-label col-md-6 col-sm-6 col-xs-6" style="text-align: right;">Use Automatic Settings</label>
+                            <div class="col-md-6 col-sm-6 col-xs-6" style="padding-top: 8px;">
+                                <div class="">
+                                    <label>
+                                    <input id ="switch1" type="checkbox" class="js-switch js-check-click" checked />
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group slider1" style="display: none;">
+                            <label class="control-label col-md-6 col-sm-6 col-xs-6" style="padding-top: 22px; text-align: right;">
+                              Light Intensity
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                              <input type="text" id="range1" value="" name="light_slider" />
+                            </div>
+                      </div>
+                      </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">
+                        Done
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  <!-- Modal#2 -->
+  <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+    <div class="vertical-alignment-helper">
+        <div class="modal-dialog vertical-align-center">
+            <div class="modal-content" style="background-color: #ededed;">
+                <form class="form-horizontal form-label-left">
+                    <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <p class="lead" style="text-align: center;">Fan Controller</p>
+                        <div class="form-group">
+                            <label class="control-label col-md-6 col-sm-6 col-xs-6" style="text-align: right;">Use Automatic Settings</label>
+                            <div class="col-md-6 col-sm-6 col-xs-6" style="padding-top: 8px;">
+                                <div class="">
+                                    <label>
+                                    <input id ="switch2" type="checkbox" class="js-switch js-check-click" checked />
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group slider2" style="display: none;">
+                            <label class="control-label col-md-6 col-sm-6 col-xs-6" style="padding-top: 22px; text-align: right;">
+                              Fan Speed
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                              <input type="text" id="range2" value="" name="fan_slider" />
+                            </div>
+                      </div>
+                      </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">
+                        Done
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <!-- Modal#3 -->
+  <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+    <div class="vertical-alignment-helper">
+        <div class="modal-dialog vertical-align-center">
+            <div class="modal-content" style="background-color: #ededed;">
+                <form class="form-horizontal form-label-left">
+                    <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <p class="lead" style="text-align: center;">Window Blinds Controller</p>
+                        <div class="form-group">
+                            <label class="control-label col-md-6 col-sm-6 col-xs-6" style="text-align: right;">Use Automatic Settings</label>
+                            <div class="col-md-6 col-sm-6 col-xs-6" style="padding-top: 8px;">
+                                <div class="">
+                                    <label>
+                                    <input id ="switch3" type="checkbox" class="js-switch js-check-click" checked />
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group slider3" style="display: none;">
+                            <label class="control-label col-md-6 col-sm-6 col-xs-6" style="text-align: right;">
+                              CLOSE
+                            </label>
+                            <div class="col-md-1 col-sm-1 col-xs-2" style="padding-top: 8px;">
+                                <div class="">
+                                    <label>
+                                    <input id ="blinds_switch" type="checkbox" class="js-switch js-check-click" checked />
+                                    </label>
+                                </div>
+                            </div>
+                            <label class="control-label col-md-5 col-sm-5 col-xs-4" style="text-align: left;">
+                              OPEN
+                            </label>
+                      </div>
+                      </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">
+                        Done
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  <!-- Modal#4 -->
+  <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+    <div class="vertical-alignment-helper">
+        <div class="modal-dialog vertical-align-center">
+            <div class="modal-content" style="background-color: #ededed;">
+                <form class="form-horizontal form-label-left">
+                    <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <p class="lead" style="text-align: center;">Lights Controller</p>
+                        <div class="form-group">
+                            <label class="control-label col-md-6 col-sm-6 col-xs-6" style="text-align: right;">Use Automatic Settings</label>
+                            <div class="col-md-6 col-sm-6 col-xs-6" style="padding-top: 8px;">
                                 <div class="">
                                     <label>
                                     <input id ="switch1" type="checkbox" class="js-switch js-check-click" checked />
@@ -318,6 +438,7 @@
         </div>
     </div>
 </div>
+
 <!-- jQuery -->
 <script src="js/jquery.min.js"></script>
 <!-- Bootstrap -->
@@ -326,8 +447,9 @@
 <script src="js/Chart.min.js"></script>
 <!-- Custom Theme Scripts -->
 <script src="js/custom.min.js"></script>
-<!-- Parsley -->
-  <script src="../vendors/parsleyjs/dist/parsley.min.js"></script>
+
+
+
 <!-- Ion.RangeSlider -->
     <script src="../vendors/ion.rangeSlider/js/ion.rangeSlider.min.js"></script>
   <!-- Ion.RangeSlider -->
@@ -350,66 +472,51 @@
         });
     </script>
     <!-- /Ion.RangeSlider -->
-     <!-- Parsley -->
-  <script>
-      $(document).ready(function() {
-        $.listen('parsley:field:validate', function() {
-          validateFront();
-        });
-        $('#demo-form .btn').on('click', function() {
-          $('#demo-form').parsley().validate();
-          validateFront();
-        });
-        var validateFront = function() {
-          if (true === $('#demo-form').parsley().isValid()) {
-            $('.bs-callout-info').removeClass('hidden');
-            $('.bs-callout-warning').addClass('hidden');
-          } else {
-            $('.bs-callout-info').addClass('hidden');
-            $('.bs-callout-warning').removeClass('hidden');
-          }
-        };
-      });
 
-      $(document).ready(function() {
-        $.listen('parsley:field:validate', function() {
-          validateFront();
-        });
-        $('#demo-form2 .btn').on('click', function() {
-          $('#demo-form2').parsley().validate();
-          validateFront();
-        });
-        var validateFront = function() {
-          if (true === $('#demo-form2').parsley().isValid()) {
-            $('.bs-callout-info').removeClass('hidden');
-            $('.bs-callout-warning').addClass('hidden');
-          } else {
-            $('.bs-callout-info').addClass('hidden');
-            $('.bs-callout-warning').removeClass('hidden');
-          }
-        };
-      });
-      try {
-        hljs.initHighlightingOnLoad();
-      } catch (err) {}
-    </script>
-  <!-- /Parsley -->
-  <!-- Switchery -->
+
+
+  <!-- Switchery | Utkarsh Patil-->
     <script src="../vendors/switchery/dist/switchery.min.js"></script>
     <script type="text/javascript"> 
     $(document).ready(function(){
-        var clickCheckbox = document.querySelector('.js-check-click');
-
+        var clickCheckbox1 = document.querySelector('#switch1');
+        var clickCheckbox2 = document.querySelector('#switch2');
+        var clickCheckbox3 = document.querySelector('#switch3');
+        var clickCheckbox4 = document.querySelector('#switch4');
         $("#switch1").click(function(){
-            if(clickCheckbox.checked){
-                $(".slider").css("display","block");
-                alert("Disabled");
+            if(clickCheckbox1.checked){
+                $(".slider1").css("display","none");
             }
             else{
-                $(".slider").css("display","none");
-                alert("Enabled");
+                $(".slider1").css("display","block");
             }
         });
+        $("#switch2").click(function(){
+            if(clickCheckbox2.checked){
+                $(".slider2").css("display","none");
+            }
+            else{
+                $(".slider2").css("display","block");
+            }
+        });
+        $("#switch3").click(function(){
+            if(clickCheckbox3.checked){
+                $(".slider3").css("display","none");
+            }
+            else{
+                $(".slider3").css("display","block");
+            }
+        });
+        $("#switch4").click(function(){
+            if(clickCheckbox4.checked){
+                $(".slider4").css("display","none");
+            }
+            else{
+                $(".slider4").css("display","block");
+            }
+        });
+
+
     });
     
     </script>
