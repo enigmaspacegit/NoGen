@@ -10,12 +10,13 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.css" />
-    <!--  <link href="css/custom.min.css" rel="stylesheet"> -->    
+    <!--  <link href="css/custom.min.css" rel="stylesheet"> -->
     <link href="css/myStyle.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-    <script src="controllers/app_controller.js"> </script>
+    <script src="controllers/app_controller.js">
+    </script>
     <!-- Ion.RangeSlider -->
     <link href="../vendors/normalize-css/normalize.css" rel="stylesheet">
     <link href="../vendors/ion.rangeSlider/css/ion.rangeSlider.css" rel="stylesheet">
@@ -23,11 +24,11 @@
     <!-- Switchery -->
     <link href="../vendors/switchery/dist/switchery.min.css" rel="stylesheet">
     <!-- Custom Theme Style -->
-    <link href = "../build/css/custom.css" rel = "stylesheet">
+    <link href="../build/css/custom.css" rel="stylesheet">
     <style type="text/css">
-        *{
-            font-family: 'Roboto', sans-serif;
-        }
+    * {
+        font-family: 'Roboto', sans-serif;
+    }
     </style>
 </head>
 
@@ -101,448 +102,256 @@
             <div class="right_col" role="main" style="margin-top: -10px; background-color: #E0E0E0">
                 <div class="">
                     <div class="page-title">
-                      <div class="title_left">
-                        <h3>Preferences</h3>
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-                <div class="row">
-                  <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="x_panel">
-                        <div class="x_title" style="text-align: center;">
-                            <h2>Preferences for Engima <small>Adjust Settings for Automated Environment</small></h2>
-                            <div class="clearfix"></div>
-                        </div>
-
-                        <!-- Form entry for preferences: Utkarsh Patil -->
-
-                        <div class="x_content">
-                            <br />
-                            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-
-                              <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="days">Working Days for Enigma
-                                </label>
-                                <div class="checkbox col-md-6 col-sm-6 col-xs-12">
-                                  <label>
-                                    <input type="checkbox" class="flat"> Monday
-                                </label>
-                                <label>
-                                    <input type="checkbox" class="flat"> Tuesday
-                                </label>
-                                <label>
-                                    <input type="checkbox" class="flat"> Wednesday
-                                </label>
-                                <label>
-                                    <input type="checkbox" class="flat"> Thursday
-                                </label>
-                                <label>
-                                    <input type="checkbox" class="flat"> Friday
-                                </label>
-                                <label>
-                                    <input type="checkbox" class="flat"> Saturday
-                                </label>
-                                <label>
-                                    <input type="checkbox" class="flat"> Sunday
-                                </label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Sleeping Time</label>
-                            <div class="row">
-                             <div class="col-md-1" style="float: left;">
-                               <select class="form-control">
-                                 <option>00</option>
-                                 <option>01</option>
-                                 <option>02</option>
-                                 <option>03</option>
-                                 <option>04</option>
-                                 <option>05</option>
-                                 <option>06</option>
-                                 <option>07</option>
-                                 <option>08</option>
-                                 <option>09</option>
-                                 <option>10</option>
-                                 <option>11</option>
-                                 <option>12</option>
-                                 <option>13</option>
-                                 <option>14</option>
-                                 <option>15</option>
-                                 <option>16</option>
-                                 <option>17</option>
-                                 <option>18</option>
-                                 <option>19</option>
-                                 <option>20</option>
-                                 <option>21</option>
-                                 <option>22</option>
-                                 <option>23</option> 
-                             </select>
-                         </div>
-                         <div style="float: left; vertical-align: center;">:</div>
-                         <div class="col-md-1" style="float: left;">
-                           <select class="form-control">
-                            <option>00</option>
-                            <option>10</option>
-                            <option>20</option>
-                            <option>30</option>
-                            <option>40</option>
-                            <option>50</option> 
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12">Wakeup Time</label>
-              <div class="row">
-               <div class="col-md-1" style="float: left;">
-                 <select class="form-control">
-                   <option>00</option>
-                   <option>01</option>
-                   <option>02</option>
-                   <option>03</option>
-                   <option>04</option>
-                   <option>05</option>
-                   <option>06</option>
-                   <option>07</option>
-                   <option>08</option>
-                   <option>09</option>
-                   <option>10</option>
-                   <option>11</option>
-                   <option>12</option>
-                   <option>13</option>
-                   <option>14</option>
-                   <option>15</option>
-                   <option>16</option>
-                   <option>17</option>
-                   <option>18</option>
-                   <option>19</option>
-                   <option>20</option>
-                   <option>21</option>
-                   <option>22</option>
-                   <option>23</option> 
-               </select>
-           </div>
-           <div style="float: left; vertical-align: center;">:</div>
-           <div class="col-md-1" style="float: left;">
-             <select class="form-control">
-              <option>00</option>
-              <option>10</option>
-              <option>20</option>
-              <option>30</option>
-              <option>40</option>
-              <option>50</option> 
-          </select>
-      </div>
-  </div>
-</div>
-
-<!-- Light Intensity Slider -->
-<div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12">
-      Light Intensity
-  </label>
-  <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="range1" value="" name="light_slider" />
-  </div>
-</div>
-
-<!-- FAN Slider -->
-<div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12">
-      Fan Speed
-  </label>
-  <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="range2" value="" name="fan_slider" />
-  </div>
-</div>
-
-<div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Sleep Environment</label>
-                            <div class="row">
-                             <div class="col-md-1" style="float: left;">
-                               <select class="form-control">
-                                 <option>Beach</option>
-                                 <option>Jungle</option>
-                                 <option>Rain</option>
-                                 <option>Thunderstrom</option>
-                                 <option>Random</option>
-                             </select>
-                         </div>
-                </div>
-            </div>
-
-
-<div class="ln_solid"></div>
-<div class="form-group" align="right">
-    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-      <button type="submit" class="btn btn-primary">Cancel</button>
-      <button type="submit" class="btn btn-success">Submit</button>
-  </div>
-</div>
-</div>
-
-</form>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<!-- Modals -->
-
-
-<!-- Modal#1 Light Controller -->
-<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-    <div class="vertical-alignment-helper">
-        <div class="modal-dialog vertical-align-center">
-            <div class="modal-content" style="background-color: #ededed;">
-                <form class="form-horizontal form-label-left">
-                    <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                            &times;
-                        </button>
-                        <p class="lead" style="text-align: center;">Lights Controller</p>
-                        <div class="form-group">
-                            <label class="control-label col-md-6 col-sm-6 col-xs-6" style="text-align: right;">Use Automatic Settings</label>
-                            <div class="col-md-6 col-sm-6 col-xs-6" style="padding-top: 8px;">
-                                <div class="">
-                                    <label>
-                                        <input id ="switch1" type="checkbox" class="js-switch js-check-click" checked />
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group slider1" style="display: none;">
-                            <label class="control-label col-md-6 col-sm-6 col-xs-6" style="padding-top: 22px; text-align: right;">
-                              Light Intensity
-                          </label>
-                          <div class="col-md-6 col-sm-6 col-xs-6">
-                              <input type="text" id="range1" ng-model="pref_light_slider" name="light_slider" />
-                          </div>
-                      </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">
-                        Done
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-</div>
-
-
-<!-- Modal#2 Fan Controller-->
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-    <div class="vertical-alignment-helper">
-        <div class="modal-dialog vertical-align-center">
-            <div class="modal-content" style="background-color: #ededed;">
-                <form class="form-horizontal form-label-left">
-                    <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                            &times;
-                        </button>
-                        <p class="lead" style="text-align: center;">Fan Controller</p>
-                        <div class="form-group">
-                            <label class="control-label col-md-6 col-sm-6 col-xs-6" style="text-align: right;">Use Automatic Settings</label>
-                            <div class="col-md-6 col-sm-6 col-xs-6" style="padding-top: 8px;">
-                                <div class="">
-                                    <label>
-                                        <input id ="switch2" type="checkbox" class="js-switch js-check-click" checked />
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group slider2" style="display: none;">
-                            <label class="control-label col-md-6 col-sm-6 col-xs-6" style="padding-top: 22px; text-align: right;">
-                              Fan Speed
-                          </label>
-                          <div class="col-md-6 col-sm-6 col-xs-6">
-                              <input type="text" id="range2" value="" name="fan_slider" />
-                          </div>
-                      </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">
-                        Done
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-</div>
-
-<!-- Modal#3 Blinds Controller-->
-<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-    <div class="vertical-alignment-helper">
-        <div class="modal-dialog vertical-align-center">
-            <div class="modal-content" style="background-color: #ededed;">
-                <form class="form-horizontal form-label-left">
-                    <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                            &times;
-                        </button>
-                        <p class="lead" style="text-align: center;">Window Blinds Controller</p>
-                        <div class="form-group">
-                            <label class="control-label col-md-6 col-sm-6 col-xs-6" style="text-align: right;">Use Automatic Settings</label>
-                            <div class="col-md-6 col-sm-6 col-xs-6" style="padding-top: 8px;">
-                                <div class="">
-                                    <label>
-                                        <input id ="switch3" type="checkbox" class="js-switch js-check-click" checked />
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group slider3" style="display: none;">
-                            <label class="control-label col-md-6 col-sm-6 col-xs-6" style="text-align: right;">
-                              CLOSE
-                          </label>
-                          <div class="col-md-1 col-sm-1 col-xs-2" style="padding-top: 8px;">
-                            <div class="">
-                                <label>
-                                    <input id ="blinds_switch" type="checkbox" class="js-switch js-check-click" checked />
-                                </label>
-                            </div>
-                        </div>
-                        <label class="control-label col-md-5 col-sm-5 col-xs-4" style="text-align: left;">
-                          OPEN
-                      </label>
-                  </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-primary">
-                    Done
-                </button>
-            </div>
-        </form>
-    </div>
-</div>
-</div>
-</div>
-
-
-<!-- Modal#4 Room Environment -->
-<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-    <div class="vertical-alignment-helper">
-        <div class="modal-dialog vertical-align-center">
-            <div class="modal-content" style="background-color: #ededed;">
-                <form class="form-horizontal form-label-left">
-                    <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                            &times;
-                        </button>
-                        <p class="lead" style="text-align: center;">Room Environment Setter</p>
-                        <div class="form-group">
-                            <label class="control-label col-md-6 col-sm-6 col-xs-6" style="text-align: right;">Use Automatic Settings</label>
-                            <div class="col-md-6 col-sm-6 col-xs-6" style="padding-top: 8px;">
-                                <div class="">
-                                    <label>
-                                        <input id ="switch1" type="checkbox" class="js-switch js-check-click" checked />
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group slider">
-                            <!-- Add the Modal 4 Data here -->
+                        <div class="title_left">
+                            <h3>Preferences</h3>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">
-                            Done
-                        </button>
+                    <div class="clearfix"></div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title" style="text-align: center;">
+                                    <h2>Preferences for Engima <small>Adjust Settings for Automated Environment</small></h2>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <!-- Form entry for preferences: Utkarsh Patil -->
+                                <div class="x_content">
+                                    <br />
+                                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="days">Working Days for Enigma
+                                            </label>
+                                            <div class="checkbox col-md-6 col-sm-6 col-xs-12">
+                                                <label>
+                                                    <input type="checkbox" class="flat"> Monday
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" class="flat"> Tuesday
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" class="flat"> Wednesday
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" class="flat"> Thursday
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" class="flat"> Friday
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" class="flat"> Saturday
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" class="flat"> Sunday
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-4">Sleeping Time</label>
+                                            <div class="row">
+                                                <div class="col-md-1" style="float: left;">
+                                                    <select class="form-control">
+                                                        <option>00</option>
+                                                        <option>01</option>
+                                                        <option>02</option>
+                                                        <option>03</option>
+                                                        <option>04</option>
+                                                        <option>05</option>
+                                                        <option>06</option>
+                                                        <option>07</option>
+                                                        <option>08</option>
+                                                        <option>09</option>
+                                                        <option>10</option>
+                                                        <option>11</option>
+                                                        <option>12</option>
+                                                        <option>13</option>
+                                                        <option>14</option>
+                                                        <option>15</option>
+                                                        <option>16</option>
+                                                        <option>17</option>
+                                                        <option>18</option>
+                                                        <option>19</option>
+                                                        <option>20</option>
+                                                        <option>21</option>
+                                                        <option>22</option>
+                                                        <option>23</option>
+                                                    </select>
+                                                </div>
+                                                <div style="float: left; vertical-align: center;">:</div>
+                                                <div class="col-md-1" style="float: left;">
+                                                    <select class="form-control">
+                                                        <option>00</option>
+                                                        <option>10</option>
+                                                        <option>20</option>
+                                                        <option>30</option>
+                                                        <option>40</option>
+                                                        <option>50</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-4">Wakeup Time</label>
+                                            <div class="row">
+                                                <div class="col-md-1" style="float: left;">
+                                                    <select class="form-control">
+                                                        <option>00</option>
+                                                        <option>01</option>
+                                                        <option>02</option>
+                                                        <option>03</option>
+                                                        <option>04</option>
+                                                        <option>05</option>
+                                                        <option>06</option>
+                                                        <option>07</option>
+                                                        <option>08</option>
+                                                        <option>09</option>
+                                                        <option>10</option>
+                                                        <option>11</option>
+                                                        <option>12</option>
+                                                        <option>13</option>
+                                                        <option>14</option>
+                                                        <option>15</option>
+                                                        <option>16</option>
+                                                        <option>17</option>
+                                                        <option>18</option>
+                                                        <option>19</option>
+                                                        <option>20</option>
+                                                        <option>21</option>
+                                                        <option>22</option>
+                                                        <option>23</option>
+                                                    </select>
+                                                </div>
+                                                <div style="float: left; vertical-align: center;">:</div>
+                                                <div class="col-md-1" style="float: left;">
+                                                    <select class="form-control">
+                                                        <option>00</option>
+                                                        <option>10</option>
+                                                        <option>20</option>
+                                                        <option>30</option>
+                                                        <option>40</option>
+                                                        <option>50</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Light Intensity Slider -->
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                                Light Intensity
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="text" id="range1" value="" name="light_slider" />
+                                            </div>
+                                        </div>
+                                        <!-- FAN Slider -->
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                                Fan Speed
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="text" id="range2" value="" name="fan_slider" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-4">Sleep Environment</label>
+                                            <div class="row">
+                                                <div class="col-md-1" style="float: left;">
+                                                    <select class="form-control">
+                                                        <option>Beach</option>
+                                                        <option>Jungle</option>
+                                                        <option>Rain</option>
+                                                        <option>Thunderstrom</option>
+                                                        <option>Random</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="ln_solid"></div>
+                                        <div class="form-group" align="right">
+                                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                                <button type="submit" class="btn btn-primary">Cancel</button>
+                                                <button type="submit" class="btn btn-success">Submit</button>
+                                            </div>
+                                        </div>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-
-<!-- jQuery -->
-<script src="js/jquery.min.js"></script>
-<!-- Bootstrap -->
-<script src="js/bootstrap.min.js"></script>
-<!-- Chart.js -->
-<script src="js/Chart.min.js"></script>
-<!-- Custom Theme Scripts -->
-<script src="js/custom.min.js"></script>
-
-
-
-<!-- Ion.RangeSlider -->
-<script src="../vendors/ion.rangeSlider/js/ion.rangeSlider.min.js"></script>
-<!-- Ion.RangeSlider -->
-<script>
-    $(document).ready(function() {
-        $("#range1").ionRangeSlider({
-          type: "single",
-          min: 0,
-          max: 100,
-          step: 1,
-          grid: true
-      });
-        $("#range2").ionRangeSlider({
-          type: "single",
-          min: 0,
-          max: 100,
-          step: 1,
-          grid: true
-      });
-    });
-</script>
-<!-- /Ion.RangeSlider -->
-
-
-
-<!-- Switchery | Utkarsh Patil-->
-<script src="../vendors/switchery/dist/switchery.min.js"></script>
-<script type="text/javascript"> 
-    $(document).ready(function(){
-        var clickCheckbox1 = document.querySelector('#switch1');
-        var clickCheckbox2 = document.querySelector('#switch2');
-        var clickCheckbox3 = document.querySelector('#switch3');
-        var clickCheckbox4 = document.querySelector('#switch4');
-        $("#switch1").click(function(){
-            if(clickCheckbox1.checked){
-                $(".slider1").css("display","none");
-            }
-            else{
-                $(".slider1").css("display","block");
-            }
+        <!-- jQuery -->
+        <script src="js/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- Chart.js -->
+        <script src="js/Chart.min.js"></script>
+        <!-- Custom Theme Scripts -->
+        <script src="js/custom.min.js"></script>
+        <!-- Ion.RangeSlider -->
+        <script src="../vendors/ion.rangeSlider/js/ion.rangeSlider.min.js"></script>
+        <!-- Ion.RangeSlider -->
+        <script>
+        $(document).ready(function() {
+            $("#range1").ionRangeSlider({
+                type: "single",
+                min: 0,
+                max: 100,
+                step: 1,
+                grid: true
+            });
+            $("#range2").ionRangeSlider({
+                type: "single",
+                min: 0,
+                max: 100,
+                step: 1,
+                grid: true
+            });
         });
-        $("#switch2").click(function(){
-            if(clickCheckbox2.checked){
-                $(".slider2").css("display","none");
-            }
-            else{
-                $(".slider2").css("display","block");
-            }
-        });
-        $("#switch3").click(function(){
-            if(clickCheckbox3.checked){
-                $(".slider3").css("display","none");
-            }
-            else{
-                $(".slider3").css("display","block");
-            }
-        });
-        $("#switch4").click(function(){
-            if(clickCheckbox4.checked){
-                $(".slider4").css("display","none");
-            }
-            else{
-                $(".slider4").css("display","block");
-            }
-        });
+        </script>
+        <!-- /Ion.RangeSlider -->
+        <!-- Switchery | Utkarsh Patil-->
+        <script src="../vendors/switchery/dist/switchery.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+            var clickCheckbox1 = document.querySelector('#switch1');
+            var clickCheckbox2 = document.querySelector('#switch2');
+            var clickCheckbox3 = document.querySelector('#switch3');
+            var clickCheckbox4 = document.querySelector('#switch4');
+            $("#switch1").click(function() {
+                if (clickCheckbox1.checked) {
+                    $(".slider1").css("display", "none");
+                } else {
+                    $(".slider1").css("display", "block");
+                }
+            });
+            $("#switch2").click(function() {
+                if (clickCheckbox2.checked) {
+                    $(".slider2").css("display", "none");
+                } else {
+                    $(".slider2").css("display", "block");
+                }
+            });
+            $("#switch3").click(function() {
+                if (clickCheckbox3.checked) {
+                    $(".slider3").css("display", "none");
+                } else {
+                    $(".slider3").css("display", "block");
+                }
+            });
+            $("#switch4").click(function() {
+                if (clickCheckbox4.checked) {
+                    $(".slider4").css("display", "none");
+                } else {
+                    $(".slider4").css("display", "block");
+                }
+            });
 
 
-    });
-    
-</script>
-<!-- iCheck -->
-    <script src="../vendors/iCheck/icheck.min.js"></script>
+        });
+        </script>
+        <!-- iCheck -->
+        <script src="../vendors/iCheck/icheck.min.js"></script>
 </body>
 
 </html>
