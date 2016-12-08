@@ -7,12 +7,16 @@ app.controller("appController", function($scope, $http, $filter) {
     $scope.last_day_sleep_hours = "";
     $scope.week_sleep_hours = "";
     $scope.pref_light_slider = 50;
-    $scope.pref_light_auto = "";
     $scope.pref_fan_slider = 0;
-    $scope.pref_fan_auto  = "";
-    $scope.pref_servo_auto = "";
     $scope.pref_sleep_time = "";
     $scope.pref_wakeup_time = "";
+    $scope.checkbox_light = true;
+    $scope.checkbox_fan = true;
+    $scope.checkbox_servo = false;
+    $scope.checkbox4 = true;
+    $scope.uname = "";
+
+
 
     //..........................................
     var date = new Date();
@@ -35,7 +39,40 @@ app.controller("appController", function($scope, $http, $filter) {
     var url2 = couldantString + "firsttry/_design/sum_temp/_view/sum_temp_view?group=true"; //sumTemp
     var url3 = couldantString + "firsttry/_design/sum_humidity/_view/sum_humidity?group=true"; //sumHumidity
     var url4 = couldantString + "sleeptime/_design/sleep/_search/sleeptime?q=date:" //sleepTime
-    var url5 = couldantString + "userpreference/_design/preference/_search/preference?q=uname:harsh"
+    var url5 = couldantString + "userpreference/_design/preference/_search/preference?q=uname:harsh";
+
+    $scope.sendDataLight = function() {
+    	var light_slider = angular.element(document.querySelector( '#range1' )).val();
+    	if(!$scope.checkbox_light){
+    		var url7 = "http://sangamesh-somawar-1.mybluemix.net/setled?intensity="+light_slider;
+        	$http.get(url7).success(function(response) {
+            console.log("DONE DANA DONE");
+        });
+    	}
+    }
+
+    $scope.sendDataFan = function(){
+    	var fan_slider = angular.element(document.querySelector( '#range2' )).val();
+    	if(!$scope.checkbox_fan)
+    		console.log("sendDataFan "+ fan_slider);
+    }
+
+    $scope.sendDataServo = function(){
+    	var blinds_switch = document.querySelector( '#blinds_switch' );
+    	var urlopen = "http://sangamesh-somawar-1.mybluemix.net/blindsopen";
+    	var urlclose = "http://sangamesh-somawar-1.mybluemix.net/blindsclose";
+    	if(blinds_switch.checked){
+    		$http.get(urlopen).success(function(response){
+    			console.log("DONE DONE DONE");
+    		});
+    	}
+    	else{
+    		$http.get(urlclose).success(function(response){
+    			console.log("DONE DONE DONE");
+    		});
+    	}
+    	console.log(blinds_switch.checked);
+    }
 
     $scope.temp = function() {
         $http.get(url1).
@@ -76,16 +113,29 @@ app.controller("appController", function($scope, $http, $filter) {
 
     $scope.sliders_init = function() {
         $http.get(url5).success(function(response) {
-        	$scope.pref_fan_auto = response.rows[0].fields.fan_auto;
-        	$scope.pref_servo_auto = response.rows[0].fields.servo_auto;
-        	$scope.pref_light_auto = response.rows[0].fields.light_auto;
-        	$scope.pref_fan_slider = response.rows[0].fields.fan;
-        	$scope.pref_light_slider = response.rows[0].fields.light_intensity;
-        	console.log($scope.pref_light_slider);
-        	$scope.pref_wakeup_time = response.rows[0].fields.wakeup_time;
-        	$scope.pref_start_time = response.rows[0].fields.start_time;
+        	console.log(response);
+            $scope.checkbox_servo = response.rows[0].fields.servo_auto;
+
+            $scope.checkbox_light = (response.rows[0].fields.light_auto === "true");
+            changeLightAutoStatus($scope.checkbox_light);
+
+            $scope.checkbox_fan = (response.rows[0].fields.fan_auto === "true")
+            changeFanAutoStatus($scope.checkbox_fan);
+
+            $scope.checkbox_servo  = (response.rows[0].fields.servo_auto === "true")
+            console.log($scope.checkbox_servo);
+
+            $scope.uname = response.rows[0].fields.uname;
+
+            $scope.pref_fan_slider = response.rows[0].fields.fan;
+            changeFan($scope.pref_fan_slider);
+
+            $scope.pref_light_slider = response.rows[0].fields.light_intensity;
+            changeLight($scope.pref_light_slider);
+
+            $scope.pref_wakeup_time = response.rows[0].fields.wakeup_time;
+            $scope.pref_start_time = response.rows[0].fields.start_time;
         });
-        console.log($scope.pref_light_slider);
     }
 
     $scope.init = function() {
