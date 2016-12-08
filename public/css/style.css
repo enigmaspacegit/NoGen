@@ -1,0 +1,188 @@
+html, body, .form-wrapper-table {
+    height: 100%;
+}
+body{
+    background: url('../images/c.jpg') fixed;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0px;
+    padding: 0px;
+    
+}
+
+.logincardcustom{
+height: auto;
+width:100%;
+}
+
+.signupcardcustom{
+height: auto;
+width:100%;
+}
+
+
+.form-signin {
+  max-width: 500px;
+  padding: 15px;
+  margin: 0 auto;
+  margin-top : 68px;
+  z-index: 1;
+  background : rgba(0, 0, 0, 0.7);
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0px 0px 20px #000000;
+}
+
+.form-signup {
+  max-width: 500px;
+  padding: 15px;
+  margin: 0 auto;
+  margin-top : 10%;
+  z-index: 1;
+  background : rgba(0, 0, 0, 0.7);
+  padding: 0px;
+  text-align: center;
+  box-shadow: 0px 0px 20px #000000;
+}
+
+.inputcustom {
+    outline: 0;
+    border: 0;
+  font-family: "Roboto", sans-serif;
+  background: #f2f2f2;
+  width: 90%;
+  margin: 10px 10px 10px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.buttoncustom {
+    outline: 0;
+    border: 0;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  background: #4CAF50;
+  width: 100%;
+  padding: 15px;
+  width: 90%;
+  color: #FFFFFF;
+  margin: 15px 15px 15px;
+}
+
+
+.message{
+    font-family: "Roboto", sans-serif;
+    margin: 15px 15px 15px;
+    color: #b3b3b3;
+}
+
+.brandMessage{
+    font-family: 'Patua One', cursive,"Roboto", sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.taglineMessage{
+    font-family: 'Patua One', cursive,"Roboto", sans-serif;
+    color: #FFFFFF;
+}
+
+.datacardcustom{
+    margin-top: 30px; 
+    width: 100%;
+    height : auto;
+    color: #FFFFFF;
+    background-color: darkslateblue;
+    box-shadow: 0px 0px 5px #000000;
+}
+
+.custommargin{
+padding: 5px;
+margin:10px;
+}
+
+#signup:target ~ .form-wrapper .form-signup, #signin:target ~ .form-wrapper .form-signin {
+  z-index: 22;
+  animation-name: fadeInLeft;
+  animation-delay: .1s; }
+
+#signup:target ~ .form-wrapper .form-signin, #signin:target ~ .form-wrapper .form-signup {
+  animation-name: fadeOutLeft; }
+
+.form-signup, .form-signin {
+  position: absolute;
+  top: 0px;
+  width: 100%; }
+
+.form-signup {
+  z-index: 21;
+  opacity: 0;
+  width: 100%; }
+
+.form-signin {
+  z-index: 22; }
+
+.animate {
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-timing-function: ease;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-duration: 0.5s;
+  -moz-animation-timing-function: ease;
+  -moz-animation-fill-mode: both;
+  -o-animation-duration: 0.5s;
+  -o-animation-timing-function: ease;
+  -o-animation-fill-mode: both;
+  -ms-animation-duration: 0.5s;
+  -ms-animation-timing-function: ease;
+  -ms-animation-fill-mode: both;
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+  animation-fill-mode: both; }
+
+  .form-wrapper {
+  right: 0px;
+  margin: 0px auto;
+  margin-top: 0px;
+  max-width: 350px;
+  position: relative; }
+
+  .login_content {
+  margin: 0 auto;
+  padding: 25px 0 0;
+  position: relative;
+  text-align: center;
+  min-width: 280px; }
+
+.login_content form {
+  margin: 20px 0;
+  position: relative; }
+
+
+.reset_pass {
+  margin-top: 10px !important; }
+
+.login_content div .reset_pass {
+  margin-top: 13px !important;
+  margin-right: 39px;
+  float: right; }
+
+.login_content form input[type="submit"], #content form .submit {
+  float: left;
+  margin-left: 38px; }
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+@media only screen and (max-width:480px){
+    .cartTitle {
+        font-size: 12px;
+        color:red;
+    }
+}
