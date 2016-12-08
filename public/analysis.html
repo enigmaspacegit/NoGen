@@ -1,6 +1,4 @@
 	<div class="row" ng-controller="AnalysisController">
-		<div class="page-title">
-			<div class="col-md-12 col-sm-12 col-xs-12">
 				<div class="x_panel">
 					<div class="x_title">
 						<h2>Daily Sleep Analysis <small>in hrs</small></h2>
@@ -8,10 +6,10 @@
 					</div>
 					<div class="x_content">
 						<div class="row">
-							<div class="col-md-2 col-xs-4">
+							<div class="col-md-2 col-xs-3">
 								<label>Select Filter By : </label>
 							</div>
-							<div class="col-md-4 col-xs-8">
+							<div class="col-md-4 col-xs-9">
 								<select class="form-control" ng-model="filterField" ng-change="updateBar()" ng-options="key as value for (key , value) in rangeOptions">
 								</select>
 							</div>
@@ -24,10 +22,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-
-			<div class="row">
+			<div class="row" style="margin:0 1px;">
 				<div class="col-md-6 col-xs-12">
 					<div class="x_panel">
 						<div class="x_content">
@@ -45,8 +40,8 @@
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
+				</div>				
+			</div>				
 		</div>
 <script>
 	Chart.defaults.global.legend = {
@@ -65,7 +60,7 @@
 		  labels:label_name,
 		  datasets: [{
 			label: '# of hours',
-			backgroundColor: "#26B99A",
+			backgroundColor: "#dfffd0",
 			data:data_name
 		  }]
 		},
@@ -90,7 +85,7 @@
 	  labels:["1/11","2/11","3/11","4/11","5/11","6/11","7/11"],
 	  datasets: [{
 		label: '# of hours',
-		backgroundColor: "#26B99A",
+		backgroundColor: "#dfffd0",
 		data: [8.5,10,7,7,8,4.5,2]
 	  }]
 	},
@@ -112,7 +107,7 @@
 	  labels:["1/11","2/11","3/11","4/11","5/11","6/11","7/11"],
 	  datasets: [{
 		label: '# of hours',
-		backgroundColor: "#26B99A",
+		backgroundColor: "#dfffd0",
 		data: [8.5,10,7,7,8,4.5,2]
 	  }]
 	},
@@ -134,7 +129,7 @@
 	  labels:["1/11","2/11","3/11","4/11","5/11","6/11","7/11"],
 	  datasets: [{
 		label: '# of hours',
-		backgroundColor: "#26B99A",
+		backgroundColor: "#dfffd0",
 		data: [8.5,10,7,7,8,4.5,2]
 	  }]
 	},
