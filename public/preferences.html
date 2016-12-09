@@ -1,0 +1,235 @@
+<div ng-controller="preferenceController">     
+    <style type="text/css">
+    * {
+        font-family: 'Roboto', sans-serif;
+    }
+    </style>
+<div class="">
+    <div class="page-title">
+        <div>
+            <h3>Preferences</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="container custom_box_shadow" style="width: 70%;vertical-align: center">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="card" style="width: 100%;vertical-align: center;background-color: #FFF;">
+                    <!-- Form entry for preferences: Utkarsh Patil -->
+                    <div class="card-block" style="padding: 15px`">
+                        <br />
+                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                            <!-- <div class="form-group row">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="days">Working Days for Enigma
+                                </label>
+                                <div class="col-sm-8 col-md-8">
+                                    <div class="checkbox col-md-4 col-sm-4 col-xs-6">
+                                        <label>
+                                            <input id="monday" ng-model="monday_checkbox" type="checkbox" class="flat"> Monday
+                                        </label>
+                                    </div>
+                                    <div class="checkbox col-md-4 col-sm-4 col-xs-6">
+                                        <label>
+                                            <input id="tuesday" ng-model="tuesday_checkbox" type="checkbox" class="flat"> Tuesday
+                                        </label>
+                                    </div>
+                                    <div class="checkbox col-md-4 col-sm-4 col-xs-6">
+                                        <label>
+                                            <input id="wednesday" ng-model="wednesday_checkbox" type="checkbox" class="flat"> Wednesday
+                                        </label>
+                                    </div>
+                                    <div class="checkbox col-md-4 col-sm-4 col-xs-6">
+                                        <label>
+                                            <input id="thursday" ng-model="thursday_checkbox" type="checkbox" class="flat"> Thursday
+                                        </label>
+                                    </div>
+                                    <div class="checkbox col-md-4 col-sm-4 col-xs-6">
+                                        <label>
+                                            <input id="friday" type="checkbox" ng-model="friday_checkbox" class="flat"> Friday
+                                        </label>
+                                    </div>
+                                    <div class="checkbox col-md-4 col-sm-4 col-xs-6">
+                                        <label>
+                                            <input id="saturday" type="checkbox" ng-model="saturday_checkbox" class="flat"> Saturday
+                                        </label>
+                                    </div>
+                                    <div class="checkbox col-md-4 col-sm-4 col-xs-6">
+                                        <label>
+                                            <input id="sunday" type="checkbox" ng-model="sunday_checkbox" class="flat"> Sunday
+                                        </label>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="form-group">
+                                <div class="row">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12">Sleeping Time</label>
+                                    <div class="col-md-2 col-sm-2 col-xs-4">
+                                        <select ng-model="sleeptimeHR" class="form-control">
+                                            <option>0</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                            <option>7</option>
+                                            <option>8</option>
+                                            <option>9</option>
+                                            <option>10</option>
+                                            <option>11</option>
+                                            <option>12</option>
+                                            <option>13</option>
+                                            <option>14</option>
+                                            <option>15</option>
+                                            <option>16</option>
+                                            <option>17</option>
+                                            <option>18</option>
+                                            <option>19</option>
+                                            <option>20</option>
+                                            <option>21</option>
+                                            <option>22</option>
+                                            <option>23</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-1 col-sm-1 col-xs-2" style="padding-top: 1%; ">HH:MM</div>
+                                    <div class="col-md-2 col-sm-2 col-xs-4">
+                                        <select ng-model="sleeptimeMin" class="form-control">
+                                            <option>0</option>
+                                            <option>10</option>
+                                            <option>20</option>
+                                            <option>30</option>
+                                            <option>40</option>
+                                            <option>50</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12">Wakeup Time</label>
+                                    <div class="col-md-2 col-sm-2 col-xs-4">
+                                        <select ng-model="waketimeHR" class="form-control">
+                                            <option>0</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                            <option>7</option>
+                                            <option>8</option>
+                                            <option>9</option>
+                                            <option>10</option>
+                                            <option>11</option>
+                                            <option>12</option>
+                                            <option>13</option>
+                                            <option>14</option>
+                                            <option>15</option>
+                                            <option>16</option>
+                                            <option>17</option>
+                                            <option>18</option>
+                                            <option>19</option>
+                                            <option>20</option>
+                                            <option>21</option>
+                                            <option>22</option>
+                                            <option>23</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-1 col-sm-1 col-xs-2" style="padding-top: 1%; ">HH:MM</div>
+                                    <div class="col-md-2 col-sm-2 col-xs-4">
+                                        <select ng-model="waketimeMin" class="form-control">
+                                            <option>0</option>
+                                            <option>10</option>
+                                            <option>20</option>
+                                            <option>30</option>
+                                            <option>40</option>
+                                            <option>50</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Light Intensity Slider -->
+                            <div class="form-group">
+                                <div class="row">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12">
+                                        Light Intensity
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="text" id="set1" name="light_slider" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- FAN Slider -->
+                            <div class="form-group">
+                                <div class="row">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12">
+                                        Fan Speed
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="text" id="set2" value="" name="fan_slider" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Sleep Environment</label>
+                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <select ng-model="environment" class="form-control">
+                                        <option>Beach</option>
+                                        <option>Jungle</option>
+                                        <option>Rain</option>
+                                        <option>Thunderstrom</option>
+                                        <option>Random</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="form-group pull-right">
+                                    <div>
+                                        <button type="submit" class="btn btn-primary">Cancel</button>
+                                        <button type="submit" class="btn btn-success" ng-click="sendPrefData()">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+        <script src="vendors/ion.rangeSlider/js/ion.rangeSlider.min.js"></script>
+        <script src="vendors/switchery/dist/switchery.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#set1").ionRangeSlider({
+                type: "single",
+                min: 0,
+                max: 100,
+                step: 1,
+                grid: true
+            });
+            $("#set2").ionRangeSlider({
+                type: "single",
+                min: 0,
+                max: 100,
+                step: 1,
+                grid: true
+            });
+        });
+    
+        function changeLightPref(start_value) {
+            $("#set1").data("ionRangeSlider").update({
+                from: start_value
+            });
+        }
+        function changeFanPref(start_value) {
+            $("#set2").data("ionRangeSlider").update({
+                from: start_value
+            });
+        }
+        </script>
+
+</div>
+    
