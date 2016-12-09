@@ -16,6 +16,8 @@ app.controller("appController", function($scope, $http, $filter) {
     $scope.checkbox4 = true;
     $scope.uname = "";
 
+    $scope.manual_environment = "Beach";
+
 
 
     //..........................................
@@ -55,6 +57,10 @@ app.controller("appController", function($scope, $http, $filter) {
     	var fan_slider = angular.element(document.querySelector( '#range2' )).val();
     	if(!$scope.checkbox_fan)
     		console.log("sendDataFan "+ fan_slider);
+    }
+
+    $scope.sendDataAudio = function(){
+    	
     }
 
     $scope.sendDataServo = function(){

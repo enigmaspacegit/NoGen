@@ -47,11 +47,15 @@ app.controller("preferenceController", function($scope, $http, $filter) {
                 }
             }
 		var url = couldantString + "userpreference";
+
+	
+
         if ($scope.rev != "notHere") {
             data["_rev"] = $scope.rev;
-            $http.put(url,data,config).
+            var url1 = url+"/harshshah";
+            $http.put(url1,data,config).
             success(function(data, status, headers, config){
-            	console.log("LALALALA");
+            	$scope.rev = data["rev"];
             })
         } else {
             
