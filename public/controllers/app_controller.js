@@ -46,7 +46,7 @@ app.controller("appController", function($scope, $http, $filter) {
     	if(!$scope.checkbox_light){
     		var url7 = "http://sangamesh-somawar-1.mybluemix.net/setled?intensity="+light_slider;
         	$http.get(url7).success(function(response) {
-            console.log("DONE DANA DONE");
+            
         });
     	}
     }
