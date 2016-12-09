@@ -1,0 +1,147 @@
+	<div class="row" ng-controller="AnalysisController">
+				<div class="x_panel">
+					<div class="x_title">
+						<h2>Daily Sleep Analysis <small>in hrs</small></h2>
+						<div class="clearfix"></div>
+					</div>
+					<div class="x_content">
+						<div class="row">
+							<div class="col-md-2 col-xs-3">
+								<label>Select Filter By : </label>
+							</div>
+							<div class="col-md-4 col-xs-9">
+								<select class="form-control" ng-model="filterField" ng-change="updateBar()" ng-options="key as value for (key , value) in rangeOptions">
+								</select>
+							</div>
+							<strong style="line-height: 30px;">{{label_name}}</strong>
+						</div>
+						<div class="row">
+							<div class="col-md-12 col-xs-12" id="myChart">
+								<canvas id="mybarChart"></canvas>
+							</div>
+						</div>
+					</div>
+				</div>
+			<div class="row" style="margin:0 1px;">
+				<div class="col-md-6 col-xs-12">
+					<div class="x_panel">
+						<div class="x_content">
+							<div class="row">
+								<canvas id="mybarChart1"></canvas>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-xs-12">
+					<div class="x_panel">
+						<div class="x_content">
+							<div class="row">
+								<canvas id="mybarChart2"></canvas>
+							</div>
+						</div>
+					</div>
+				</div>				
+			</div>				
+		</div>
+<script>
+	Chart.defaults.global.legend = {
+	enabled: true,
+	};
+
+	function alertMe() {
+		var label_name = $('[ng-controller="AnalysisController"]').scope().labels;
+		var data_name = $('[ng-controller="AnalysisController"]').scope().data;
+		$('#mybarChart').remove(); // this is my <canvas> element
+  		$('#myChart').append('<canvas id="mybarChart"><canvas>');
+		var ctx = document.getElementById("mybarChart").getContext('2d');
+		var mybarChart = new Chart(ctx, {
+		type: 'bar',
+		data: {
+		  labels:label_name,
+		  datasets: [{
+			label: '# of hours',
+			backgroundColor: "#16a085",
+			data:data_name
+		  }]
+		},
+
+		options: {
+		  scales: {
+			yAxes: [{
+			  ticks: {
+				beginAtZero: true
+			  }
+			}]
+		  }
+		}
+		});
+	}
+	var ctx = document.getElementById("mybarChart").getContext('2d');
+	var ctx1 = document.getElementById("mybarChart1").getContext('2d');
+	var ctx2 = document.getElementById("mybarChart2").getContext('2d');
+	var mybarChart = new Chart(ctx, {
+	type: 'bar',
+	data: {
+	  labels:["1/11","2/11","3/11","4/11","5/11","6/11","7/11"],
+	  datasets: [{
+		label: '# of hours',
+		backgroundColor: "#16a085",
+		data: [8.5,10,7,7,8,4.5,2]
+	  }]
+	},
+
+	options: {
+	  scales: {
+		yAxes: [{
+		  ticks: {
+			beginAtZero: true
+		  }
+		}]
+	  }
+	}
+});
+
+	var mybarChart1 = new Chart(ctx1, {
+	type: 'bar',
+	data: {
+	  labels:["1/11","2/11","3/11","4/11","5/11","6/11","7/11"],
+	  datasets: [{
+		label: '# of hours',
+		backgroundColor: "#16a085",
+		data: [8.5,10,7,7,8,4.5,2]
+	  }]
+	},
+
+	options: {
+	  scales: {
+		yAxes: [{
+		  ticks: {
+			beginAtZero: true
+		  }
+		}]
+	  }
+	}
+});
+
+	var mybarChart2 = new Chart(ctx2, {
+	type: 'bar',
+	data: {
+	  labels:["1/11","2/11","3/11","4/11","5/11","6/11","7/11"],
+	  datasets: [{
+		label: '# of hours',
+		backgroundColor: "#16a085",
+		data: [8.5,10,7,7,8,4.5,2]
+	  }]
+	},
+
+	options: {
+	  scales: {
+		yAxes: [{
+		  ticks: {
+			beginAtZero: true
+		  }
+		}]
+	  }
+	}
+});
+</script>

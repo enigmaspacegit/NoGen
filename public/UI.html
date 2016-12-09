@@ -1,0 +1,425 @@
+    <link href="css/ion.rangeSlider.css" rel="stylesheet">
+    <link href="css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
+    <!-- Switchery -->
+    <link href="css/switchery.min.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="css/custom.css" rel="stylesheet">
+    <style type="text/css">
+    * {
+        font-family: 'Roboto', sans-serif;
+    }
+    </style>
+<div ng-controller="appController">
+<div class="" style="margin : 0 -20px;">
+    <div class="SunsetData navcustomcontainerfluid custom_border_radius">
+        <div class="sunsetText1 text-center" style="padding: 3px">
+            <p>Hello,Good Morning</p>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row" style="margin-top:10px; margin-bottom:10px;">
+        <div class="col-md-3 col-sm-6 col-xs-12" style="padding-right: 20px;">
+            <div class="row  custom_margin_top custom_box_shadow custom_margin_right custom_border_radius">
+                <div class="card">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="min-height:100px;background-color:#27ae60;"></div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" style="min-height:100px;background-color:#27ae60;">
+                        <div>
+                            <h2 style="color:white;">Average Humidity Last Night</h2>
+                            <div class="display : inline">
+                                <h1 style="color:white;float: left; margin: 0" ng-bind="humidity"></h1>
+                                <h1 style="color:white;float: left;margin: 0">&nbsp;%</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12" style="padding-right: 20px;">
+            <div class="row custom_margin_top custom_box_shadow custom_margin_right custom_border_radius">
+                <div class="card">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="min-height:100px;background-color:#34495e;"></div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" style="min-height:100px;background-color:#34495e;">
+                        <div>
+                            <h2 style="color:white;">Average Temp Last Night</h2>
+                            <div class="display : inline">
+                                <h1 style="color:white;float: left; margin: 0" ng-bind="temperature"></h1>
+                                <h1 style="color:white;float: left;margin: 0">&nbsp;C</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12" style="padding-right: 20px;">
+            <div class="row custom_margin_top custom_box_shadow custom_margin_right custom_border_radius">
+                <div class="card">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="min-height:100px;background-color:#c0392b;"></div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" style="min-height:100px;background-color:#c0392b;">
+                        <div>
+                            <h2 style="color:white;">Last Night Sleep &nbsp;&nbsp;</h2>
+                            <div class="display : inline">
+                                <h1 style="color:white;float: left; margin: 0;" ng-bind="last_day_sleep_hours"></h1>
+                                <h1 style="color:white;float: left;margin: 0">&nbsp;hours</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12 d">
+            <div class="row custom_margin_top custom_box_shadow custom_margin_right custom_border_radius">
+                <div class="card">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="min-height:100px;background-color:#7f8c8d;"></div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" style="min-height:100px;background-color:#7f8c8d;">
+                        <div>
+                            <h2 style="color:white;">Total Sleep this week</h2>
+                            <div class="display : inline">
+                                <h1 style="color:white;float: left;margin: 0" ng-bind="week_sleep_hours"></h1>
+                                <h1 style="color:white;float: left;margin: 0">&nbsp;C</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /top tiles -->
+<div class="row ">
+    <div class="col-md-6 col-lg-6 col-xs-12" style="padding-right: 20px;">
+        <div class="row custom_margin_top custom_box_shadow custom_border_radius" style="background-color: #FFF">
+            <div class="card" style="padding : 5px ">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="min-height:100px;">
+                    <div class="cartPic">
+                        <img src="images/bulb.png">
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" style="min-height:100px;">
+                    <div class="cartText">
+                        <h2>Room Environment</h2>
+                        <p>Control the settings of Lights</p>
+                    </div>
+                </div>
+                <div class="card-footer pull-right">
+                    <button class=" btn btn-primary custom_button_css" data-toggle="modal" data-backdrop="static" data-keyboard="false" data-target="#myModal4">More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-6 col-xs-12">
+        <div class="row custom_margin_top custom_margin_right custom_box_shadow custom_border_radius" style="background-color: #FFF">
+            <div class="card" style="padding : 5px ">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="min-height:100px;">
+                    <div class="cartPic">
+                        <img src="images/bulb.png">
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" style="min-height:100px;">
+                    <div class="cartText">
+                        <h2>Window Blinds</h2>
+                        <p>Control the blinds!</p>
+                    </div>
+                </div>
+                <div class="card-footer pull-right">
+                    <button class=" btn btn-primary custom_button_css" data-toggle="modal" data-backdrop="static" data-keyboard="false" data-target="#myModal3">More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row ">
+    <div class="col-md-6 col-lg-6 col-xs-12" style="padding-right: 20px; ">
+        <div class="row custom_margin_top custom_margin_right custom_box_shadow custom_border_radius" style="background-color: #FFF">
+            <div class="card" style="padding : 5px ">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="min-height:100px;">
+                    <div class="cartPic">
+                        <img src="images/bulb.png">
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" style="min-height:100px;">
+                    <div class="cartText">
+                        <h2>Room Lights</h2>
+                        <p>Control the settings of Lights</p>
+                    </div>
+                </div>
+                <div class="card-footer pull-right">
+                    <button class=" btn btn-primary custom_button_css" data-toggle="modal" data-backdrop="static" data-keyboard="false" data-target="#myModal1">More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-6 col-xs-12">
+        <div class="row custom_margin_top custom_box_shadow custom_border_radius" style="background-color: #FFF">
+            <div class="card" style="padding : 5px ">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="min-height:100px;">
+                    <div class="cartPic">
+                        <img src="images/bulb.png">
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" style="min-height:100px;">
+                    <div class="cartText">
+                        <h2>Fan Speed</h2>
+                        <p>Control the speed of Fan</p>
+                    </div>
+                </div>
+                <div class="card-footer pull-right">
+                    <button class="btn btn-primary custom_button_css" data-toggle="modal" data-backdrop="static" data-keyboard="false" data-target="#myModal2">Click</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  <!-- Modals -->
+    <!-- Modal#1 Light Controller -->
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="vertical-alignment-helper">
+            <div class="modal-dialog vertical-align-center">
+                <div class="modal-content" style="background-color: #ededed;">
+                    <form class="form-horizontal form-label-left">
+                        <div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <p class="lead" style="text-align: center;">Lights Controller</p>
+                            <div class="form-group">
+                                <label class="control-label col-md-6 col-sm-6 col-xs-6" style="text-align: right;">Use Automatic Settings</label>
+                                <div class="col-md-6 col-sm-6 col-xs-6" style="padding-top: 8px;">
+                                    <div class="">
+                                        <label>
+                                            <input id="switch1" type="checkbox" class="js-switch js-check-click" ng-model="checkbox_light" />
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group slider1" ng-show="!checkbox_light">
+                                <label class="control-label col-md-6 col-sm-6 col-xs-6" style="padding-top: 22px; text-align: right;">
+                                    Light Intensity
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <input type="text" id="range1" ng-model="pref_light_slider" name="light_slider" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" ng-click="sendDataLight()">
+                                Done
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal#2 Fan Controller-->
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="vertical-alignment-helper">
+            <div class="modal-dialog vertical-align-center">
+                <div class="modal-content" style="background-color: #ededed;">
+                    <form class="form-horizontal form-label-left">
+                        <div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <p class="lead" style="text-align: center;">Fan Controller</p>
+                            <div class="form-group">
+                                <label class="control-label col-md-6 col-sm-6 col-xs-6" style="text-align: right;">Use Automatic Settings</label>
+                                <div class="col-md-6 col-sm-6 col-xs-6" style="padding-top: 8px;">
+                                    <div class="">
+                                        <label>
+                                            <input id="switch2" type="checkbox" class="js-switch js-check-click" ng-model="checkbox_fan" />
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group slider2" ng-show="!checkbox_fan">
+                                <label class="control-label col-md-6 col-sm-6 col-xs-6" style="padding-top: 22px; text-align: right;">
+                                    Fan Speed
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <input type="text" id="range2" value="" name="fan_slider" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" ng-click="sendDataFan()">
+                                Done
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal#3 Blinds Controller-->
+    <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="vertical-alignment-helper">
+            <div class="modal-dialog vertical-align-center">
+                <div class="modal-content" style="background-color: #ededed;">
+                    <form class="form-horizontal form-label-left">
+                        <div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <p class="lead" style="text-align: center;">Window Blinds Controller</p>
+                            <div class="form-group">
+                                <label class="control-label col-md-6 col-sm-6 col-xs-6" style="text-align: right;">Use Automatic Settings</label>
+                                <div class="col-md-6 col-sm-6 col-xs-6" style="padding-top: 8px;">
+                                    <div class="">
+                                        <label>
+                                            <input id="switch3" type="checkbox" class="js-switch js-check-click" ng-model="checkbox_servo" />
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group slider3" ng-show="!checkbox_servo">
+                                <label class="control-label col-md-6 col-sm-6 col-xs-6" style="text-align: right;">
+                                    CLOSE
+                                </label>
+                                <div class="col-md-1 col-sm-1 col-xs-2" style="padding-top: 8px;">
+                                    <div class="">
+                                        <label>
+                                            <input id="blinds_switch" type="checkbox" class="js-switch js-check-click" checked />
+                                        </label>
+                                    </div>
+                                </div>
+                                <label class="control-label col-md-5 col-sm-5 col-xs-4" style="text-align: left;">
+                                    OPEN
+                                </label>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" ng-click="sendDataServo()">
+                                Done
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal#4 Room Environment -->
+    <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="vertical-alignment-helper">
+            <div class="modal-dialog vertical-align-center">
+                <div class="modal-content" style="background-color: #ededed;">
+                    <form class="form-horizontal form-label-left">
+                        <div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <p class="lead" style="text-align: center;">Room Environment Setter</p>
+                            <div class="form-group">
+                                <label class="control-label col-md-6 col-sm-6 col-xs-6" style="text-align: right;">Use Automatic Settings</label>
+                                <div class="col-md-6 col-sm-6 col-xs-6" style="padding-top: 8px;">
+                                    <div class="">
+                                        <label>
+                                            <input id="switch1" type="checkbox" class="js-switch js-check-click" ng-model="checkbox4" />
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group slider">
+                                <!-- Add the Modal 4 Data here -->
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary">
+                                Done
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        <script src="js/ion.rangeSlider.min.js"></script>
+        <script>
+        function changeLight(start_value) {
+            $("#range1").data("ionRangeSlider").update({
+                from: start_value
+            });
+        }
+
+        function changeFan(start_value) {
+            $("#range2").data("ionRangeSlider").update({
+                from: start_value
+            });
+        }
+
+        function changeLightAutoStatus(value) {
+            if (value) {
+                $('#switch1').attr('checked',true);
+            } else {
+                $('#switch1').attr('checked',false);
+            }
+        }
+        function changeFanAutoStatus(value) {
+            if (value) {
+                $('#switch2').attr('checked',true);
+            } else {
+                $('#switch2').attr('checked',false);
+            }
+        }
+        $(document).ready(function() {
+            $("#range1").ionRangeSlider({
+                type: "single",
+                min: 0,
+                max: 100,
+                step: 1,
+                grid: true
+            });
+            $("#range2").ionRangeSlider({
+                type: "single",
+                min: 0,
+                max: 100,
+                step: 1,
+                grid: true,
+            });
+        });
+        </script>
+        <!-- /Ion.RangeSlider -->
+        <!-- Switchery | Utkarsh Patil-->
+        <script src="js/switchery.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+            // var clickCheckbox1 = document.querySelector('#switch1');
+            // var clickCheckbox2 = document.querySelector('#switch2');
+            // var clickCheckbox3 = document.querySelector('#switch3');
+            // var clickCheckbox4 = document.querySelector('#switch4');
+            // $("#switch1").click(function() {
+            //     if (clickCheckbox1.checked) {
+            //         $(".slider1").css("display", "none");
+            //     } else {
+            //         $(".slider1").css("display", "block");
+            //     }
+            // });
+            // $("#switch2").click(function() {
+            //     if (clickCheckbox2.checked) {
+            //         $(".slider2").css("display", "none");
+            //     } else {
+            //         $(".slider2").css("display", "block");
+            //     }
+            // });
+            // $("#switch3").click(function() {
+            //     if (clickCheckbox3.checked) {
+            //         $(".slider3").css("display", "none");
+            //     } else {
+            //         $(".slider3").css("display", "block");
+            //     }
+            // });
+            // $("#switch4").click(function() {
+            //     if (clickCheckbox4.checked) {
+            //         $(".slider4").css("display", "none");
+            //     } else {
+            //         $(".slider4").css("display", "block");
+            //     }
+            // });
+
+
+        });
+        </script>
+</body>
+
+</html>
