@@ -95,7 +95,7 @@ mainApp.controller("loginController", function($scope, $http, $window) {
                 $scope.email = "";
                 $scope.age = "";
                 $scope.city = "";
-                $window.location.href = '/home/akshay/Desktop/Enigma/NoGen/public/UI.html';
+                $window.location.href = '/home.html';
 
             })
             .error(function(data, status, header, config) {
@@ -114,9 +114,11 @@ mainApp.controller('AnalysisController', function($scope, $http) {
 
     $scope.arraytemp = [];
     $scope.arrayHumTemp = [];
-
+    $scope.countArray = [];
     $scope.filterField = 1;
     $scope.dataHumidity = [];
+    $scope.tempSumArray = [];
+    $scope.humiditySumArray = [];
     $scope.dataTemperature = [];
 
     $scope.rangeOptions = {
@@ -139,7 +141,7 @@ mainApp.controller('AnalysisController', function($scope, $http) {
             $scope.sortFunction(2);
             $scope.label_name = "Second Week Chart";
         } else if ($scope.selectedField == 3) {
-           // $scope.labels = ["15/11", "16/11", "17/11", "18/11", "19/11", "20/11", "21/11"];
+            // $scope.labels = ["15/11", "16/11", "17/11", "18/11", "19/11", "20/11", "21/11"];
             $scope.sortFunction(3);
             $scope.label_name = "Third Week Chart";
         } else if ($scope.selectedField == 4) {
@@ -150,14 +152,14 @@ mainApp.controller('AnalysisController', function($scope, $http) {
         alertMe();
     }
 
-     var calculateHours = function(end_time,start_time) {
+    var calculateHours = function(end_time, start_time) {
         var date1 = new Date(end_time);
         var date2 = new Date(start_time);
 
         var date3 = new Date(date1 - date2);
-        var subDate = new Date(date3.getTime()-(330*60*1000))
+        var subDate = new Date(date3.getTime() - (330 * 60 * 1000))
 
-        return (subDate.getHours() + "." + (subDate.getMinutes()*5/3));
+        return (subDate.getHours() + "." + (subDate.getMinutes() * 5 / 3));
     }
 
     $scope.sortFunction = function(value) {
@@ -168,15 +170,19 @@ mainApp.controller('AnalysisController', function($scope, $http) {
         var temp_temp = [];
         var temp_humidity = [];
         for (i = start_index; i <= end_index; i++) {
-            temp_label.push($scope.arraytemp[i]["doc"]["d"]["day"].substring(0,5));
-            temp_sleep_hour.push(parseFloat(calculateHours($scope.arraytemp[i]["doc"]["d"]["end_time"],$scope.arraytemp[i]["doc"]["d"]["start_time"])));
+            temp_label.push($scope.arraytemp[i]["doc"]["d"]["day"].substring(0, 5));
+            temp_sleep_hour.push(parseFloat(calculateHours($scope.arraytemp[i]["doc"]["d"]["end_time"], $scope.arraytemp[i]["doc"]["d"]["start_time"])));
+            temp_temp.push(($scope.tempSumArray[i]["value"]) / ($scope.countArray[i]["value"]));
+            temp_humidity.push(($scope.humiditySumArray[i]["value"]) / ($scope.countArray[i]["value"]));
         }
 
         $scope.labels = temp_label;
         $scope.data = temp_sleep_hour;
+        $scope.dataTemperature = temp_temp;
+        $scope.dataHumidity = temp_humidity;
     }
 
-   
+
 
     $scope.getData = function() {
         var end_date = new Date();
@@ -209,19 +215,28 @@ mainApp.controller('AnalysisController', function($scope, $http) {
         var couldantString = "https://6e3a252f-2d39-4b3e-a820-b8d3e9c08a9e-bluemix:08c0c7801afd410eea51d5913a2a81bdaeecc480de508954f54c3388873c64a6@6e3a252f-2d39-4b3e-a820-b8d3e9c08a9e-bluemix.cloudant.com/";
 
         var url = couldantString + "sleeptime/_all_docs?endkey=\"" + end_date + "\"&startkey=\"" + start_date + "\"&include_docs=true";
-        var url1  = couldantString + "firsttry/count_temp/_view/count_temp?group=true&endkey=\"" + end_date + "\"&startkey=\"" + start_date + "\"";
-        var url2 = couldantString + "firsttry/sum_temp/_view/sum_temp_view?group=true&endkey=\"" + end_date + "\"&startkey=\"" + start_date + "\"";
-        var url3 = couldantString + "firsttry/sum_humidity/_view/sum_humidity?group=true&endkey=\"" + end_date + "\"&startkey=\"" + start_date + "\"";
+        var url1 = couldantString + "firsttry/_design/count_temp/_view/count_temp?group=true&endkey=\"" + end_date + "\"&startkey=\"" + start_date + "\"";
+        var url2 = couldantString + "firsttry/_design/sum_temp/_view/sum_temp_view?group=true&endkey=\"" + end_date + "\"&startkey=\"" + start_date + "\"";
+        var url3 = couldantString + "firsttry/_design/sum_humidity/_view/sum_humidity?group=true&endkey=\"" + end_date + "\"&startkey=\"" + start_date + "\"";
 
         $http.get(url).success(function(response) {
             console.log(response);
             $scope.arraytemp = response.rows.reverse();
-            $scope.sortFunction(1);
-            alertMe();
         });
 
         $http.get(url1).success(function(response) {
-            console.log(response);
+            $scope.countArray = response.rows.reverse();
+
+            $http.get(url2).success(function(response) {
+                $scope.tempSumArray = response.rows.reverse();
+                console.log($scope.tempSumArray);
+                $http.get(url3).success(function(response) {
+                    $scope.humiditySumArray = response.rows.reverse();
+                    $scope.sortFunction(1);
+                    alertMe();
+                })
+            })
+
         });
 
 
@@ -244,8 +259,9 @@ mainApp.controller("appController", function($scope, $http, $filter) {
     $scope.checkbox_light = true;
     $scope.checkbox_fan = true;
     $scope.checkbox_servo = true;
-    $scope.checkbox4 = true;
+    $scope.checkbox_audio = true;
     $scope.uname = "";
+    $scope.manual_environment = "Beach";
 
 
 
@@ -259,9 +275,11 @@ mainApp.controller("appController", function($scope, $http, $filter) {
         dd = 30;
         mm = mm - 1;
     }
+    dd = ("0" + dd).slice(-2);
+    mm = ("0" + mm).slice(-2);
 
     var index = "";
-    date = dd + "-" + mm + "-" + yy;
+    date = mm + "-" + dd + "-" + yy;
     var date_sleepTime = mm + "-" + dd + "-" + yy;
 
 
@@ -271,6 +289,7 @@ mainApp.controller("appController", function($scope, $http, $filter) {
     var url3 = couldantString + "firsttry/_design/sum_humidity/_view/sum_humidity?group=true"; //sumHumidity
     var url4 = couldantString + "sleeptime/_design/sleep/_search/sleeptime?q=date:" //sleepTime
     var url5 = couldantString + "userpreference/_design/preference/_search/preference?q=uname:harsh";
+
 
     $scope.sendDataLight = function() {
         var light_slider = angular.element(document.querySelector('#range1')).val();
@@ -282,6 +301,9 @@ mainApp.controller("appController", function($scope, $http, $filter) {
         }
     }
 
+    //playaudioui?filename= 
+    //stopaudioui
+
     $scope.sendDataFan = function() {
         var fan_slider = angular.element(document.querySelector('#range2')).val();
         if (!$scope.checkbox_fan)
@@ -289,8 +311,31 @@ mainApp.controller("appController", function($scope, $http, $filter) {
     }
 
     $scope.sendDataServo = function() {
-        var blinds_switch = angular.element(document.querySelector('#blinds_switch'));
-        console.log(blinds_switch);
+        var blinds_switch = document.querySelector( '#blinds_switch' );
+        var urlopen = "http://sangamesh-somawar-1.mybluemix.net/blindsopen";
+        var urlclose = "http://sangamesh-somawar-1.mybluemix.net/blindsclose";
+        if(blinds_switch.checked){
+            $http.get(urlopen).success(function(response){
+                console.log("DONE DONE DONE");
+            });
+        }
+        else{
+            $http.get(urlclose).success(function(response){
+                console.log("DONE DONE DONE");
+            });
+        }
+        console.log(blinds_switch.checked);
+    }
+
+    $scope.playaudio = function(){
+        var filename = $scope.manual_environment + ".mp3";
+        var url = "http://sangamesh-somawar-1.mybluemix.net/playaudioui?filename="+filename;
+        $http.get(url).success(function(response){console.log("asdasdasd");});
+    }
+
+    $scope.stopaudio = function(){
+        var url = "http://sangamesh-somawar-1.mybluemix.net/stopaudioui";
+        $http.get(url).success(function(response){console.log("asdasdasd");});
     }
 
     $scope.temp = function() {
@@ -316,18 +361,53 @@ mainApp.controller("appController", function($scope, $http, $filter) {
     $scope.last_day_sleep_func = function() {
         url4 = url4 + date;
         $http.get(url4).success(function(response) {
-            $scope.parseTime(response.rows[0].fields.end_time, response.rows[0].fields.start_time);
+            $scope.parseTime(response.rows[0].fields.end_time, response.rows[0].fields.start_time,false);
         });
     }
 
-    $scope.parseTime = function(end_time, start_time) {
-        var date1 = new Date(end_time);
+    $scope.week_sleep_func = function() {
+        end_date = date;
+        var start_date = new Date(new Date().getTime() - (8 * 24 * 60 * 60 * 1000));
+        dd = start_date.getDate() - 1;
+        mm = start_date.getMonth() + 1;
+        yy = start_date.getFullYear();
+        if (dd <= 0) {
+            dd = 30;
+            mm = mm - 1;
+        }
+        dd = ("0" + dd).slice(-2);
+        mm = ("0" + mm).slice(-2);
+        start_date = mm + "-" + dd + "-" + yy;
+
+        var url6 = couldantString + "sleeptime/_all_docs?endkey=\"" + end_date + "\"&startkey=\"" + start_date + "\"&include_docs=true";
+        $http.get(url6).success(function(response) {
+            console.log(response);
+            var sum =0.0;
+                for(i=0;i<response.rows.length;i++){
+                    sum = sum + parseFloat($scope.parseTime(response.rows[i]["doc"]["d"].end_time, response.rows[i]["doc"]["d"].start_time,true));
+                }
+
+                console.log(sum);
+
+            $scope.week_sleep_hours = sum.toFixed(2);    
+        })
+    }
+
+    $scope.parseTime = function(end_time, start_time,bool) {
+
+         var date1 = new Date(end_time);
         var date2 = new Date(start_time);
 
         var date3 = new Date(date1 - date2);
-        var subDate = new Date(date3.getTime()-(330*60*1000))
-
+        var subDate = new Date(date3.getTime() - (330 * 60 * 1000))
+        if(bool){
+            return subDate.getHours()+"."+subDate.getMinutes()*100/60;
+        }
+        else
+        {
         $scope.last_day_sleep_hours = subDate.getHours() + ":" + subDate.getMinutes();
+        }
+        
 
     }
 
@@ -363,6 +443,7 @@ mainApp.controller("appController", function($scope, $http, $filter) {
         $scope.temp();
         $scope.last_day_sleep_func();
         $scope.sliders_init();
+        $scope.week_sleep_func();
     }
     $scope.init();
 });

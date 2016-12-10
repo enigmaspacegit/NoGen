@@ -16,6 +16,13 @@
     <!-- Switchery -->
     <link href="vendors/switchery/dist/switchery.min.css" rel="stylesheet">
     <style type="text/css">
+    @media only screen and (max-width: 991px) {
+      html,body{
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+    }
+
     * {
         font-family: 'Roboto', sans-serif;
     }
@@ -26,7 +33,7 @@
     <div class="container body">
         <div class="">
             <div class="col-md-3 left_col" style="margin-top: 60px;">
-                <div class="left_col scroll-view">
+                <div class="">
                     <div class="clearfix"></div>
                     <!-- menu profile quick info -->
                     <div class="profile">
@@ -39,7 +46,7 @@
                         </div>
                     </div>
                     <!-- /menu profile quick info -->
-                    <br />
+                    <br>
                     <!-- sidebar menu -->
                     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu" style="z-index: -1;">
                         <div class="menu_section">
@@ -63,8 +70,8 @@
                     <!-- /sidebar menu -->
                 </div>
             </div>
-            <div class="top_nav" style="padding-right : 0px;padding-left: 0px">
-                <div>
+            <div class="top_nav">
+                <div style="margin-right: 10px">
                     <div class="row" style="z-index: 1;">
                         <div class="nav_menu">
                             <nav>
@@ -84,7 +91,7 @@
                 </div>
                 <!-- container closed -->
             </div>
-            <div class="right_col" role="main" style="margin-top: -10px;  background-color: #E0E0E0">
+            <div class="right_col" role="main" style="margin-top: -10px; background-color: #E0E0E0">
                 <div ng-app="mainApp" ng-controller="IndexController">
                     <ng-view></ng-view>
                 </div>
