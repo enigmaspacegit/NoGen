@@ -5,19 +5,99 @@
 }
 
 #profile-info{
-	background-color: red; 
+	background-color: #BDBDBD; 
 	float: left;
-	min-height: 10px;
+	min-height: 500px;
+	align-content: center;
+	padding: 0px;
 }
 
 #profile-show{
-	background-color: green; 
+	/*background-color: #FFFFFF; */
 	float: left;
-	min-height: 10px;
+	min-height: 500px;
 }
 
 #bg-card{
-	padding-right:40px; 
-	padding-left:40px;
-	padding-bottom: 19px;
+	padding-right:0px; 
+	padding-left:0px;
+	padding-bottom: 0px;
 }
+
+#profile-pic{
+	width: 100%;
+	/*margin: 30px auto;*/
+
+
+
+}
+
+#profile-data{
+	width: 100%;s
+	margin: 0 auto;
+
+}
+
+.custom-box-shadow{
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+#prof-edit:target ~ .p-wrapper .profedit, #prof-show:target ~ .p-wrapper .profview {
+  z-index: 22;
+  animation-name: fadeInLeft;
+  animation-delay: .1s; }
+
+#prof-edit:target ~ .p-wrapper .profview, #prof-show:target ~ .p-wrapper .profedit {
+  animation-name: fadeOutLeft; }
+
+.profedit, .profview {
+  position: absolute;
+  top: 0px;
+  width: 100%; }
+
+.profedit {
+  z-index: 21;
+  opacity: 0;
+  width: 100%; 
+  max-width: 500px;
+  padding: 15px;
+  margin: 0 auto;
+  margin-top : 10%;
+  z-index: 1;
+  background : rgba(0, 0, 0, 0.7);
+  padding: 0px;
+  text-align: center;
+  box-shadow: 0px 0px 20px #000000;
+}
+
+.profview {
+  z-index: 22; 
+  background-color: pink;
+  max-width: 500px;
+  padding: 15px;
+  margin: 0 auto;
+  margin-top : 68px;
+  z-index: 1;
+  background : rgba(0, 0, 0, 0.7);
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0px 0px 20px #000000;
+}
+
+.animate {
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-timing-function: ease;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-duration: 0.5s;
+  -moz-animation-timing-function: ease;
+  -moz-animation-fill-mode: both;
+  -o-animation-duration: 0.5s;
+  -o-animation-timing-function: ease;
+  -o-animation-fill-mode: both;
+  -ms-animation-duration: 0.5s;
+  -ms-animation-timing-function: ease;
+  -ms-animation-fill-mode: both;
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+  animation-fill-mode: both; }
+

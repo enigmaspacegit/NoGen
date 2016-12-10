@@ -96,29 +96,79 @@
                         </div>
                     </div>
                     <div class="clearfix"></div>
-                    <div class="row">
+                    <div class="row" style="margin-left: 0px;
+    margin-right: 0px;">
                         <div class="col-md-12 col-sm-12 col-xs-12">
-                            <div class="card" style="background-color: #FFF;">
-                                
-
-
-
+                            <div class="card" style="padding: 0px;">
                                 <!-- Profile CARD: Utkarsh Patil -->
-                                
-                                <div class="card-block" id="bg-card">
-                                    <br />
-                                    <div class="row">
-                                        <div id="profile-info" class="col-md-3 col-sm-3 col-xs-12"></div>
-                                        <div id="profile-show" class="col-md-9 col-sm-9 col-xs-12"></div>
+                                <div class="card-block custom-box-shadow" id="bg-card">
+                                    <div class="row" style="margin-left: 0px;
+    margin-right: 0px;">
+                                        <div id="profile-info" class="col-md-3 col-sm-3 col-xs-12 ">
+                                            <div id="profile-pic">
+                                                <div id="crop-avatar">
+                                                    <!-- Current avatar -->
+                                                    <img class="img-responsive avatar-view" src="images/profile.jpg" alt="Avatar" title="Change the avatar">
+                                                </div>
+                                            </div>
+                                            <div id="profile-data">
+                                                <h3>Utkarsh Patil</h3>
+                                                <ul class="list-unstyled user_data">
+                                                    <li><i class="fa fa-map-marker user-profile-icon"></i> Pune, Maharashtra, India
+                                                    </li>
+                                                    <li>
+                                                        <i class="fa fa-briefcase user-profile-icon"></i> UI Developer
+                                                    </li>
+                                                    <li class="m-top-xs">
+                                                        <i class="fa fa-external-link user-profile-icon"></i>
+                                                        <a href="https://www.facebook.com/imutkarshpatil" target="_blank">Find me on Facebook</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div id="profile-show" class="col-md-9 col-sm-9 col-xs-12 p-wrapper">
+                                            <a class="hiddenanchor" id="prof-edit"></a>
+                                            <a class="hiddenanchor" id="prof-show"></a>
+                                                <div class="animate form profview">
+                                                   <!--  <div class="card logincardcustom">     </div> -->
+                                                    <form>
+                                                     <a href="#prof-edit">Edit</a>
+                                                    </form>
+                                                </div>
+
+                                                <div class="animate form profedit">
+                                                   <!--  <div class="card logincardcustom">     </div> -->
+                                                   <form>
+                                                     <a href="#prof-show">Save</a>
+                                                    </form>
+                                                </div>
+
+                                                <!-- <div class="animate form form-signup">
+                                                    <div class="card signupcardcustom">
+                                                        <section class="login_content" ng-controller="signupController">
+                                                            <form>
+                                                                <p>
+                                                                    <h1 class="brandMessage">Light's Out!</h1></p>
+                                                                <p>
+                                                                    <h4 class="taglineMessage"> A Virtual Sleeping Environment.</h4></p>
+                                                                <input type="text" class="inputcustom" placeholder="Username" required="" ng-model="username" />
+                                                                <span style="color : red" ng-show="error_invalid_username">{{error_invalid_username}}</span>
+                                                                <input type="email" class="inputcustom" placeholder="Email" required="" ng-model="email" />
+                                                                <input type="password" class="inputcustom" placeholder="Password" required="" ng-model="password" />
+                                                                <input class="inputcustom" type="number" placeholder="Your Age in Years"="" ng-model="age">
+                                                                <input class="inputcustom" type="text" placeholder="City" ng-model="city">
+                                                                <button class="buttoncustom" href="" ng-click="call()">Sign Up</button>
+                                                                <p class="message">Already a member ?
+                                                                    <a href="#signin"> Log in </a>
+                                                                </p>
+                                                            </form>
+                                                        </section>
+                                                    </div>
+                                                </div> -->
+                                        </div>
                                     </div>
-
                                 </div>
-
                                 <!-- /Profile CARD: Utkarsh Patil -->
-                                
-
-
-
                             </div>
                         </div>
                     </div>
