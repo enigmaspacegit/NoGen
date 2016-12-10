@@ -51,9 +51,13 @@
 	function alertMe() {
 		var label_name = $('[ng-controller="AnalysisController"]').scope().labels;
 		var data_name = $('[ng-controller="AnalysisController"]').scope().data;
+		var data_humidity = $('[ng-controller="AnalysisController"]').scope().dataHumidity;
+		var data_temperature = $('[ng-controller="AnalysisController"]').scope().dataTemperature;
 		$('#mybarChart').remove(); // this is my <canvas> element
   		$('#myChart').append('<canvas id="mybarChart"><canvas>');
 		var ctx = document.getElementById("mybarChart").getContext('2d');
+		var ctx1 = document.getElementById("mybarChart1").getContext('2d');
+		var ctx2 = document.getElementById("mybarChart2").getContext('2d');
 		var mybarChart = new Chart(ctx, {
 		type: 'bar',
 		data: {
@@ -62,6 +66,48 @@
 			label: '# of hours',
 			backgroundColor: "#16a085",
 			data:data_name
+		  }]
+		},
+
+		options: {
+		  scales: {
+			yAxes: [{
+			  ticks: {
+				beginAtZero: true
+			  }
+			}]
+		  }
+		}
+		});
+		var mybarChart1 = new Chart(ctx1, {
+		type: 'bar',
+		data: {
+		  labels:label_name,
+		  datasets: [{
+			label: '# of hours',
+			backgroundColor: "#16a085",
+			data:data_humidity
+		  }]
+		},
+
+		options: {
+		  scales: {
+			yAxes: [{
+			  ticks: {
+				beginAtZero: true
+			  }
+			}]
+		  }
+		}
+		});
+		var mybarChart2 = new Chart(ctx2, {
+		type: 'bar',
+		data: {
+		  labels:label_name,
+		  datasets: [{
+			label: '# of hours',
+			backgroundColor: "#16a085",
+			data:data_temperature
 		  }]
 		},
 

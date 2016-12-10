@@ -1,37 +1,37 @@
 var mainApp = angular.module("mainApp", ['ngRoute']);
 
 mainApp.config(function($routeProvider) {
-	$routeProvider
-		.when('/', {
-			redirectTo: '/home'
-		})
-		.when('/analysis', {
-			templateUrl: 'analysis.html',
-		})
-		.when('/home', {
-			templateUrl: 'UI.html',
-		})		
+    $routeProvider
+        .when('/', {
+            redirectTo: '/home'
+        })
+        .when('/analysis', {
+            templateUrl: 'analysis.html',
+        })
+        .when('/home', {
+            templateUrl: 'UI.html',
+        })
         .when('/preference', {
             templateUrl: 'preferences.html',
-        })      
+        })
 });
 
 mainApp.controller('IndexController', function($scope) {
-	$scope.message = "Welcome To Index Page";
+    $scope.message = "Welcome To Index Page";
 });
 
 mainApp.controller('signupController', function($scope) {
-	$scope.message = "Welcome To Index Page";
+    $scope.message = "Welcome To Index Page";
 });
 
 mainApp.controller("loginController", function($scope, $http, $window) {
 
-	 $scope.username = "";
+    $scope.username = "";
     $scope.password = "";
     $scope.call = function() {
 
-    	var couldantString = "https://6e3a252f-2d39-4b3e-a820-b8d3e9c08a9e-bluemix:08c0c7801afd410eea51d5913a2a81bdaeecc480de508954f54c3388873c64a6@6e3a252f-2d39-4b3e-a820-b8d3e9c08a9e-bluemix.cloudant.com/";
-        var url = couldantString + "registration/_design/registration/_search/existSearch?q=uname:\""+$scope.username+"\" AND password:\""+$scope.password+"\"";
+        var couldantString = "https://6e3a252f-2d39-4b3e-a820-b8d3e9c08a9e-bluemix:08c0c7801afd410eea51d5913a2a81bdaeecc480de508954f54c3388873c64a6@6e3a252f-2d39-4b3e-a820-b8d3e9c08a9e-bluemix.cloudant.com/";
+        var url = couldantString + "registration/_design/registration/_search/existSearch?q=uname:\"" + $scope.username + "\" AND password:\"" + $scope.password + "\"";
 
         var config = {
             headers: {
@@ -43,16 +43,15 @@ mainApp.controller("loginController", function($scope, $http, $window) {
             .success(function(data, status, headers, config) {
                 console.log(status);
                 console.log(data.total_rows);
-                if(data.total_rows==1){
-                	$scope.username = "";
-                	$scope.password = "";
-                	$window.location.href = '/home.html';
-                }
-                else
-                	$scope.error_invalid_login = "Something's Wrong. Please try again!";
+                if (data.total_rows == 1) {
+                    $scope.username = "";
+                    $scope.password = "";
+                    $window.location.href = '/home.html';
+                } else
+                    $scope.error_invalid_login = "Something's Wrong. Please try again!";
             })
             .error(function(data, status, header, config) {
-                console.log ("Data: " + data +
+                console.log("Data: " + data +
                     "<hr />status: " + status +
                     "<hr />headers: " + header +
                     "<hr />config: " + config);
@@ -60,9 +59,9 @@ mainApp.controller("loginController", function($scope, $http, $window) {
                 $scope.password = "";
                 $scope.error_invalid_login = "Something's Wrong. Please try again!";
             });
-       
+
     }
-}).controller("signupController", function($scope, $http,$window) {
+}).controller("signupController", function($scope, $http, $window) {
     $scope.username = "";
     $scope.password = "";
     $scope.email = "";
@@ -100,7 +99,7 @@ mainApp.controller("loginController", function($scope, $http, $window) {
 
             })
             .error(function(data, status, header, config) {
-                console.log ("Data: " + data +
+                console.log("Data: " + data +
                     "<hr />status: " + status +
                     "<hr />headers: " + header +
                     "<hr />config: " + config);
@@ -111,41 +110,124 @@ mainApp.controller("loginController", function($scope, $http, $window) {
 });
 
 
-mainApp.controller('AnalysisController', function($scope) {
-	
-	$scope.rangeOptions = 
-	{
-		"1":"First Week",
-		"2":"Second Week",
-		"3":"Third Week",
-		"4":"Fourth Week"
-	}
-	$scope.label_name  ="First Week Chart";
-	$scope.updateBar = function() {
-		$scope.selectedField = $scope.filterField;
-		$scope.data = [];
-		if ($scope.selectedField == 1){
-			$scope.labels  = ["1/11", "2/11", "3/11", "4/11", "5/11", "6/11", "7/11"];
-			$scope.data = [5,8,1,10,4,8,3];
-			$scope.label_name = "First Week Chart";
-		}
-		else if ($scope.selectedField == 2){
-			$scope.labels  = ["8/11", "9/11", "10/11", "11/11", "12/11", "13/11", "14/11"];
-			$scope.data = [5,8,1,10,4,8,3];
-			$scope.label_name = "Second Week Chart";
-		}
-		else if ($scope.selectedField == 3){
-			$scope.labels  = ["15/11", "16/11", "17/11", "18/11", "19/11", "20/11", "21/11"];
-			$scope.data = [5,2,6,1,4,10,3];
-			$scope.label_name = "Third Week Chart";
-		}
-		else if ($scope.selectedField == 4){
-			$scope.labels  = ["22/11", "23/11", "24/11", "25/11", "26/11", "27/11", "28/11"];
-			$scope.data = [9,2,10,1,2,4,5];
-			$scope.label_name = "Last Week Chart";
-		}
-		alertMe();
-	}
+mainApp.controller('AnalysisController', function($scope, $http) {
+
+    $scope.arraytemp = [];
+    $scope.arrayHumTemp = [];
+
+    $scope.filterField = 1;
+    $scope.dataHumidity = [];
+    $scope.dataTemperature = [];
+
+    $scope.rangeOptions = {
+        "1": "First Week",
+        "2": "Second Week",
+        "3": "Third Week",
+        "4": "Fourth Week"
+    }
+    $scope.label_name = "First Week Chart";
+    $scope.updateBar = function() {
+        $scope.selectedField = $scope.filterField;
+        $scope.data = [];
+        if ($scope.selectedField == 1) {
+            $scope.labels = ["1/11", "2/11", "3/11", "4/11", "5/11", "6/11", "7/11"];
+            // $scope.data = [5, 8, 1, 10, 4, 8, 3];
+            $scope.sortFunction(1);
+            $scope.label_name = "First Week Chart";
+        } else if ($scope.selectedField == 2) {
+            //$scope.labels = ["8/11", "9/11", "10/11", "11/11", "12/11", "13/11", "14/11"];
+            $scope.sortFunction(2);
+            $scope.label_name = "Second Week Chart";
+        } else if ($scope.selectedField == 3) {
+           // $scope.labels = ["15/11", "16/11", "17/11", "18/11", "19/11", "20/11", "21/11"];
+            $scope.sortFunction(3);
+            $scope.label_name = "Third Week Chart";
+        } else if ($scope.selectedField == 4) {
+            //$scope.labels = ["22/11", "23/11", "24/11", "25/11", "26/11", "27/11", "28/11"];
+            $scope.sortFunction(4);
+            $scope.label_name = "Last Week Chart";
+        }
+        alertMe();
+    }
+
+     var calculateHours = function(end_time,start_time) {
+        var date1 = new Date(end_time);
+        var date2 = new Date(start_time);
+
+        var date3 = new Date(date1 - date2);
+        var subDate = new Date(date3.getTime()-(330*60*1000))
+
+        return (subDate.getHours() + "." + (subDate.getMinutes()*5/3));
+    }
+
+    $scope.sortFunction = function(value) {
+        var start_index = (value - 1) * 7;
+        var end_index = (value * 7) - 1;
+        var temp_label = [];
+        var temp_sleep_hour = [];
+        var temp_temp = [];
+        var temp_humidity = [];
+        for (i = start_index; i <= end_index; i++) {
+            temp_label.push($scope.arraytemp[i]["doc"]["d"]["day"].substring(0,5));
+            temp_sleep_hour.push(parseFloat(calculateHours($scope.arraytemp[i]["doc"]["d"]["end_time"],$scope.arraytemp[i]["doc"]["d"]["start_time"])));
+        }
+
+        $scope.labels = temp_label;
+        $scope.data = temp_sleep_hour;
+    }
+
+   
+
+    $scope.getData = function() {
+        var end_date = new Date();
+        var dd = end_date.getDate() - 1;
+        var mm = end_date.getMonth() + 1;
+        var yy = end_date.getFullYear();
+        if (dd <= 0) {
+            dd = 30;
+            mm = mm - 1;
+        }
+        dd = ("0" + dd).slice(-2);
+        mm = ("0" + mm).slice(-2);
+        var start_date = new Date(end_date.getTime() - (30 * 24 * 60 * 60 * 1000));
+
+        end_date = mm + "-" + dd + "-" + yy;
+
+
+        dd = start_date.getDate() - 1;
+        mm = start_date.getMonth() + 1;
+        yy = start_date.getFullYear();
+        if (dd <= 0) {
+            dd = 30;
+            mm = mm - 1;
+        }
+        dd = ("0" + dd).slice(-2);
+        mm = ("0" + mm).slice(-2);
+        start_date = mm + "-" + dd + "-" + yy;
+        console.log(start_date);
+
+        var couldantString = "https://6e3a252f-2d39-4b3e-a820-b8d3e9c08a9e-bluemix:08c0c7801afd410eea51d5913a2a81bdaeecc480de508954f54c3388873c64a6@6e3a252f-2d39-4b3e-a820-b8d3e9c08a9e-bluemix.cloudant.com/";
+
+        var url = couldantString + "sleeptime/_all_docs?endkey=\"" + end_date + "\"&startkey=\"" + start_date + "\"&include_docs=true";
+        var url1  = couldantString + "firsttry/count_temp/_view/count_temp?group=true&endkey=\"" + end_date + "\"&startkey=\"" + start_date + "\"";
+        var url2 = couldantString + "firsttry/sum_temp/_view/sum_temp_view?group=true&endkey=\"" + end_date + "\"&startkey=\"" + start_date + "\"";
+        var url3 = couldantString + "firsttry/sum_humidity/_view/sum_humidity?group=true&endkey=\"" + end_date + "\"&startkey=\"" + start_date + "\"";
+
+        $http.get(url).success(function(response) {
+            console.log(response);
+            $scope.arraytemp = response.rows.reverse();
+            $scope.sortFunction(1);
+            alertMe();
+        });
+
+        $http.get(url1).success(function(response) {
+            console.log(response);
+        });
+
+
+    }
+
+    $scope.getData();
 });
 
 
@@ -191,24 +273,24 @@ mainApp.controller("appController", function($scope, $http, $filter) {
     var url5 = couldantString + "userpreference/_design/preference/_search/preference?q=uname:harsh";
 
     $scope.sendDataLight = function() {
-         var light_slider = angular.element(document.querySelector( '#range1' )).val();
-         if(!$scope.checkbox_light){
-                 var url7 = "http://sangamesh-somawar-1.mybluemix.net/setled?intensity="+light_slider;
-         $http.get(url7).success(function(response) {
-            console.log("DONE DANA DONE");
-        });
-         }
+        var light_slider = angular.element(document.querySelector('#range1')).val();
+        if (!$scope.checkbox_light) {
+            var url7 = "http://sangamesh-somawar-1.mybluemix.net/setled?intensity=" + light_slider;
+            $http.get(url7).success(function(response) {
+                console.log("DONE DANA DONE");
+            });
+        }
     }
 
-    $scope.sendDataFan = function(){
-         var fan_slider = angular.element(document.querySelector( '#range2' )).val();
-         if(!$scope.checkbox_fan)
-                 console.log("sendDataFan "+ fan_slider);
+    $scope.sendDataFan = function() {
+        var fan_slider = angular.element(document.querySelector('#range2')).val();
+        if (!$scope.checkbox_fan)
+            console.log("sendDataFan " + fan_slider);
     }
 
-    $scope.sendDataServo = function(){
-         var blinds_switch = angular.element(document.querySelector( '#blinds_switch' ));
-         console.log(blinds_switch);
+    $scope.sendDataServo = function() {
+        var blinds_switch = angular.element(document.querySelector('#blinds_switch'));
+        console.log(blinds_switch);
     }
 
     $scope.temp = function() {
@@ -243,14 +325,16 @@ mainApp.controller("appController", function($scope, $http, $filter) {
         var date2 = new Date(start_time);
 
         var date3 = new Date(date1 - date2);
+        var subDate = new Date(date3.getTime()-(330*60*1000))
 
-        $scope.last_day_sleep_hours = date3.getHours() + ":" + date3.getMinutes();
+        $scope.last_day_sleep_hours = subDate.getHours() + ":" + subDate.getMinutes();
 
     }
 
+
     $scope.sliders_init = function() {
         $http.get(url5).success(function(response) {
-         console.log(response);
+            console.log(response);
             $scope.checkbox_servo = response.rows[0].fields.servo_auto;
 
             $scope.checkbox_light = (response.rows[0].fields.light_auto === "true");
@@ -259,7 +343,7 @@ mainApp.controller("appController", function($scope, $http, $filter) {
             $scope.checkbox_fan = (response.rows[0].fields.fan_auto === "true")
             changeFanAutoStatus($scope.checkbox_fan);
 
-            $scope.checkbox_servo  = (response.rows[0].fields.servo_auto === "true")
+            $scope.checkbox_servo = (response.rows[0].fields.servo_auto === "true")
             console.log($scope.checkbox_servo);
 
             $scope.uname = response.rows[0].fields.uname;
@@ -320,28 +404,27 @@ mainApp.controller("preferenceController", function($scope, $http, $filter) {
             },
             "sleep_time": sleepTime,
             "wakeup_time": wakeTime,
-            "sleep_environment": $scope.environment,
-            "days": days
+            "sleep_environment": $scope.environment
         }
 
         var config = {
-                headers: {
-                    'Content-Type': 'application/json;'
-                }
+            headers: {
+                'Content-Type': 'application/json;'
             }
+        }
         var url = couldantString + "userpreference";
 
-    
+
 
         if ($scope.rev != "notHere") {
             data["_rev"] = $scope.rev;
-            var url1 = url+"/harshshah";
-            $http.put(url1,data,config).
-            success(function(data, status, headers, config){
+            var url1 = url + "/harshshah";
+            $http.put(url1, data, config).
+            success(function(data, status, headers, config) {
                 $scope.rev = data["rev"];
             })
         } else {
-            
+
             $http.post(url, data, config)
                 .success(function(data, status, headers, config) {
                     console.log("DHDHDHDHD");
