@@ -30,35 +30,43 @@ mainApp.controller("loginController", function($scope, $http, $window) {
     $scope.password = "";
     $scope.call = function() {
 
-        var couldantString = "https://6e3a252f-2d39-4b3e-a820-b8d3e9c08a9e-bluemix:08c0c7801afd410eea51d5913a2a81bdaeecc480de508954f54c3388873c64a6@6e3a252f-2d39-4b3e-a820-b8d3e9c08a9e-bluemix.cloudant.com/";
-        var url = couldantString + "registration/_design/registration/_search/existSearch?q=uname:\"" + $scope.username + "\" AND password:\"" + $scope.password + "\"";
 
-        var config = {
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8;'
+        if ($scope.username != "" && $scope.password != "") {
+            var couldantString = "https://6e3a252f-2d39-4b3e-a820-b8d3e9c08a9e-bluemix:08c0c7801afd410eea51d5913a2a81bdaeecc480de508954f54c3388873c64a6@6e3a252f-2d39-4b3e-a820-b8d3e9c08a9e-bluemix.cloudant.com/";
+            var url = couldantString + "registration/_design/registration/_search/existSearch?q=uname:\"" + $scope.username + "\" AND password:\"" + $scope.password + "\"";
+
+            var config = {
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8;'
+                }
             }
-        }
 
-        $http.get(url)
-            .success(function(data, status, headers, config) {
-                console.log(status);
-                console.log(data.total_rows);
-                if (data.total_rows == 1) {
+            $http.get(url)
+                .success(function(data, status, headers, config) {
+                    console.log(data);
+                    console.log(data.total_rows);
+                    if (data.total_rows == 1) {
+                        $scope.username = "";
+                        $scope.password = "";
+                        $window.location.href = '/home.html';
+                    } else {
+                        $scope.error_invalid_login = "Something's Wrong. Please try again!";
+                    }
+                })
+                .error(function(data, status, header, config) {
+                    console.log("Data: " + data +
+                        "<hr />status: " + status +
+                        "<hr />headers: " + header +
+                        "<hr />config: " + config);
                     $scope.username = "";
                     $scope.password = "";
-                    $window.location.href = '/home.html';
-                } else
                     $scope.error_invalid_login = "Something's Wrong. Please try again!";
-            })
-            .error(function(data, status, header, config) {
-                console.log("Data: " + data +
-                    "<hr />status: " + status +
-                    "<hr />headers: " + header +
-                    "<hr />config: " + config);
-                $scope.username = "";
-                $scope.password = "";
-                $scope.error_invalid_login = "Something's Wrong. Please try again!";
-            });
+                });
+        }
+        else
+            $scope.error_invalid_login = "Something's Wrong. Please try again!";
+
+
 
     }
 }).controller("signupController", function($scope, $http, $window) {
@@ -311,31 +319,30 @@ mainApp.controller("appController", function($scope, $http, $filter) {
     }
 
     $scope.sendDataServo = function() {
-        var blinds_switch = document.querySelector( '#blinds_switch' );
+        var blinds_switch = document.querySelector('#blinds_switch');
         var urlopen = "http://sangamesh-somawar-1.mybluemix.net/blindsopen";
         var urlclose = "http://sangamesh-somawar-1.mybluemix.net/blindsclose";
-        if(blinds_switch.checked){
-            $http.get(urlopen).success(function(response){
+        if (blinds_switch.checked) {
+            $http.get(urlopen).success(function(response) {
                 console.log("DONE DONE DONE");
             });
-        }
-        else{
-            $http.get(urlclose).success(function(response){
+        } else {
+            $http.get(urlclose).success(function(response) {
                 console.log("DONE DONE DONE");
             });
         }
         console.log(blinds_switch.checked);
     }
 
-    $scope.playaudio = function(){
+    $scope.playaudio = function() {
         var filename = $scope.manual_environment + ".mp3";
-        var url = "http://sangamesh-somawar-1.mybluemix.net/playaudioui?filename="+filename;
-        $http.get(url).success(function(response){console.log("asdasdasd");});
+        var url = "http://sangamesh-somawar-1.mybluemix.net/playaudioui?filename=" + filename;
+        $http.get(url).success(function(response) { console.log("asdasdasd"); });
     }
 
-    $scope.stopaudio = function(){
+    $scope.stopaudio = function() {
         var url = "http://sangamesh-somawar-1.mybluemix.net/stopaudioui";
-        $http.get(url).success(function(response){console.log("asdasdasd");});
+        $http.get(url).success(function(response) { console.log("asdasdasd"); });
     }
 
     $scope.temp = function() {
@@ -361,7 +368,7 @@ mainApp.controller("appController", function($scope, $http, $filter) {
     $scope.last_day_sleep_func = function() {
         url4 = url4 + date;
         $http.get(url4).success(function(response) {
-            $scope.parseTime(response.rows[0].fields.end_time, response.rows[0].fields.start_time,false);
+            $scope.parseTime(response.rows[0].fields.end_time, response.rows[0].fields.start_time, false);
         });
     }
 
@@ -382,32 +389,30 @@ mainApp.controller("appController", function($scope, $http, $filter) {
         var url6 = couldantString + "sleeptime/_all_docs?endkey=\"" + end_date + "\"&startkey=\"" + start_date + "\"&include_docs=true";
         $http.get(url6).success(function(response) {
             console.log(response);
-            var sum =0.0;
-                for(i=0;i<response.rows.length;i++){
-                    sum = sum + parseFloat($scope.parseTime(response.rows[i]["doc"]["d"].end_time, response.rows[i]["doc"]["d"].start_time,true));
-                }
+            var sum = 0.0;
+            for (i = 0; i < response.rows.length; i++) {
+                sum = sum + parseFloat($scope.parseTime(response.rows[i]["doc"]["d"].end_time, response.rows[i]["doc"]["d"].start_time, true));
+            }
 
-                console.log(sum);
+            console.log(sum);
 
-            $scope.week_sleep_hours = sum.toFixed(2);    
+            $scope.week_sleep_hours = sum.toFixed(2);
         })
     }
 
-    $scope.parseTime = function(end_time, start_time,bool) {
+    $scope.parseTime = function(end_time, start_time, bool) {
 
-         var date1 = new Date(end_time);
+        var date1 = new Date(end_time);
         var date2 = new Date(start_time);
 
         var date3 = new Date(date1 - date2);
         var subDate = new Date(date3.getTime() - (330 * 60 * 1000))
-        if(bool){
-            return subDate.getHours()+"."+subDate.getMinutes()*100/60;
+        if (bool) {
+            return subDate.getHours() + "." + subDate.getMinutes() * 100 / 60;
+        } else {
+            $scope.last_day_sleep_hours = subDate.getHours() + ":" + subDate.getMinutes();
         }
-        else
-        {
-        $scope.last_day_sleep_hours = subDate.getHours() + ":" + subDate.getMinutes();
-        }
-        
+
 
     }
 

@@ -1,9 +1,13 @@
-<link href="css/ion.rangeSlider.css" rel="stylesheet">
+<!-- <link href="css/ion.rangeSlider.css" rel="stylesheet">
 <link href="css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
+ -->
+<link href="vendors/normalize-css/normalize.css" rel="stylesheet">
+    <link href="vendors/ion.rangeSlider/css/ion.rangeSlider.css" rel="stylesheet">
+    <link href="vendors/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
 <!-- Switchery -->
 <link href="css/myStyle.css" rel="stylesheet">
-<link href="../vendors/switchery/dist/switchery.min.css" rel="stylesheet">
-<link href="css/switchery.min.css" rel="stylesheet">
+<link href="vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+<!-- <link href="css/switchery.min.css" rel="stylesheet"> -->
 <!-- Custom Theme Style -->
 <link href="css/custom.css" rel="stylesheet">
 <style type="text/css">
@@ -132,7 +136,7 @@
                                 <h2 style="color:white;">Total Sleep this week</h2>
                                 <div class="display : inline">
                                     <h1 style="color:white;float: left;margin: 0" ng-bind="week_sleep_hours"></h1>
-                                    <h1 style="color:white;float: left;margin: 0">&nbsp;C</h1>
+                                    <h1 style="color:white;float: left;margin: 0">&nbsp;hours</h1>
                                 </div>
                             </div>
                         </div>
@@ -257,7 +261,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" ng-click="sendDataLight()">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="sendDataLight()">
                                 Done
                             </button>
                         </div>
@@ -297,7 +301,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" ng-click="sendDataFan()">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="sendDataFan()">
                                 Done
                             </button>
                         </div>
@@ -344,7 +348,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" ng-click="sendDataServo()">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="sendDataServo()">
                                 Done
                             </button>
                         </div>
@@ -369,7 +373,7 @@
                                 <div class="col-md-6 col-sm-6 col-xs-6" style="padding-top: 8px;">
                                     <div class="">
                                         <label>
-                                            <input id="switch1" ng-model="checkbox_audio" type="checkbox" class="js-switch js-check-click" />
+                                            <input id="switch4" ng-model="checkbox_audio" type="checkbox" class="js-switch js-check-click" />
                                         </label>
                                     </div>
                                 </div>
@@ -387,10 +391,10 @@
                                     </div>
                                 </div>
                                 <div class="pull-right">
-                                    <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="playaudio()">
+                                    <button type="button" class="btn btn-danger" ng-click="stopaudio()">
                                         Stop
                                     </button>
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="stopaudio()">
+                                    <button type="button" class="btn btn-primary"  ng-click="playaudio()">
                                         Play
                                     </button>
                                 </div>
@@ -402,7 +406,16 @@
         </div>
     </div>
 </div>
-<script src="js/ion.rangeSlider.min.js"></script>
+<!-- jQuery --> 
+        <script src="js/jquery.min.js"></script>        
+        <!-- Bootstrap -->      
+        <script src="js/bootstrap.min.js"></script>     
+        <!-- Chart.js -->       
+        <script src="js/Chart.min.js"></script>     
+        <!-- Custom Theme Scripts -->       
+        <script src="js/custom.min.js"></script>        
+        <!-- Ion.RangeSlider -->
+   <script src="vendors/ion.rangeSlider/js/ion.rangeSlider.min.js"></script>
 <script>
 function changeLight(start_value) {
     $("#range1").data("ionRangeSlider").update({
@@ -449,8 +462,7 @@ $(document).ready(function() {
 });
 </script>
 <!-- /Ion.RangeSlider -->
-<!-- Switchery | Utkarsh Patil-->
-<script src="js/switchery.min.js"></script>
+<script type="text/javascript" src="vendors/switchery/dist/switchery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
     // var clickCheckbox1 = document.querySelector('#switch1');
@@ -489,6 +501,4 @@ $(document).ready(function() {
 
 });
 </script>
-</body>
 
-</html>
