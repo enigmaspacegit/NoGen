@@ -140,7 +140,7 @@ mainApp.controller('AnalysisController', function($scope, $http) {
         $scope.selectedField = $scope.filterField;
         $scope.data = [];
         if ($scope.selectedField == 1) {
-            $scope.labels = ["1/11", "2/11", "3/11", "4/11", "5/11", "6/11", "7/11"];
+            //$scope.labels = ["1/11", "2/11", "3/11", "4/11", "5/11", "6/11", "7/11"];
             // $scope.data = [5, 8, 1, 10, 4, 8, 3];
             $scope.sortFunction(1);
             $scope.label_name = "First Week Chart";
@@ -356,11 +356,11 @@ mainApp.controller("appController", function($scope, $http, $filter) {
                 }
             }
             $http.get(url2).success(function(response) {
-                $scope.temperature = response.rows[index].value / count1;
+                $scope.temperature = (response.rows[index].value / count1).toFixed(2);
             });
 
             $http.get(url3).success(function(response) {
-                $scope.humidity = response.rows[index].value / count1;
+                $scope.humidity = (response.rows[index].value / count1).toFixed(2);
             });
         });
     }
