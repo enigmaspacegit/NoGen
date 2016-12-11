@@ -157,7 +157,7 @@ mainApp.controller('AnalysisController', function($scope, $http) {
             $scope.sortFunction(4);
             $scope.label_name = "Last Week Chart";
         }
-        alertMe();
+        alertMe($scope);
     }
 
     var calculateHours = function(end_time, start_time) {
@@ -241,7 +241,7 @@ mainApp.controller('AnalysisController', function($scope, $http) {
                 $http.get(url3).success(function(response) {
                     $scope.humiditySumArray = response.rows.reverse();
                     $scope.sortFunction(1);
-                    alertMe();
+                    alertMe($scope);
                 })
             })
 

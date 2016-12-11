@@ -48,11 +48,15 @@
 	enabled: true,
 	};
 
-	function alertMe() {
-		var label_name = $('[ng-controller="AnalysisController"]').scope().labels;
-		var data_name = $('[ng-controller="AnalysisController"]').scope().data;
-		var data_humidity = $('[ng-controller="AnalysisController"]').scope().dataHumidity;
-		var data_temperature = $('[ng-controller="AnalysisController"]').scope().dataTemperature;
+	function alertMe($scope) {
+		//var label_name = $('[ng-controller="AnalysisController"]').scope().labels;
+		var label_name = $scope.labels;
+		var data_name = $scope.data;
+		var data_temperature = $scope.dataTemperature;
+		var data_humidity = $scope.dataHumidity;
+		//var data_name = $('[ng-controller="AnalysisController"]').scope().data;
+		//var data_humidity = $('[ng-controller="AnalysisController"]').scope().dataHumidity;
+		//var data_temperature = $('[ng-controller="AnalysisController"]').scope().dataTemperature;
 		$('#mybarChart').remove(); // this is my <canvas> element
   		$('#myChart').append('<canvas id="mybarChart"><canvas>');
 		var ctx = document.getElementById("mybarChart").getContext('2d');
