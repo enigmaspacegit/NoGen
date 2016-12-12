@@ -71,9 +71,10 @@
 </style>
 <div id="div1" ng-controller="appController">
     <div class="" style="margin : 0 -20px;">
-        <div class="SunsetData navcustomcontainerfluid custom_border_radius">
+        <div id="sunsetDiv" class="SunsetData navcustomcontainerfluid custom_border_radius">
             <div class="sunsetText1 text-center" style="padding: 3px">
-                <p>Hello Akshay,Good Morning</p>
+                <p>Hello {{uname}}</p>
+                <p>{{Message}}</p>
             </div>
         </div>
     </div>
@@ -157,7 +158,7 @@
                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" style="min-height:100px;">
                         <div class="cartText">
                             <h2>Room Environment</h2>
-                            <p>Control the settings of Lights</p>
+                            <p>Pick the environment for room</p>
                         </div>
                     </div>
                     <div class="card-footer pull-right">
@@ -261,7 +262,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="sendDataLight()">
+                            <button type="button" class="btn btn-primary"  ng-click="sendDataLight()">
                                 Done
                             </button>
                         </div>

@@ -270,6 +270,8 @@ mainApp.controller("appController", function($scope, $http, $filter) {
     $scope.checkbox_audio = true;
     $scope.uname = "";
     $scope.manual_environment = "Beach";
+    $scope.Message = "Good Morning";
+
 
 
 
@@ -444,7 +446,20 @@ mainApp.controller("appController", function($scope, $http, $filter) {
         });
     }
 
+    $scope.day_time = function(){
+        var dt = new Date();
+        if(dt.getHours() > 20){
+            $scope.Message = "Good Night";
+            var div = angular.element(document.querySelector('#sunsetDiv'));
+            div.attr("style","background-image: url('../images/sunset2.jpg');")
+        }
+        else if(dt.getHours() >= 12 && dt.getHours()<20){
+            $scope.Message = "Good Afternoon";
+        }
+    }
+
     $scope.init = function() {
+        $scope.day_time();
         $scope.temp();
         $scope.last_day_sleep_func();
         $scope.sliders_init();
